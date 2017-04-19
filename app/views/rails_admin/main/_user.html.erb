@@ -1,0 +1,1 @@
+<%= collection_select(:assign, :reviewer_id, User.all, :id, :name, {include_blank: false, include_hidden: false, :class=>'col-lg-8'}, {multiple: :true})%>

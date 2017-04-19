@@ -1,0 +1,47 @@
+<%if can? :index, :article %>
+	<center>
+		<% if flash[:success] %>
+		  <div class = 'alert alert-success alert-dismissable' >
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+		    <%= flash[:success] %>
+		  </div>
+		<% elsif flash[:failure] %>
+		  <div class = 'alert alert-danger alert-dismissable' >
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+		    <%= flash[:failure] %>
+		  </div>
+		<%end%>
+		<body  style='background-color: #cccccc'>
+			<div class='container'>
+			  <h1 class=text-info >These are the available Articles</h1>
+				<div align='center'>
+		      <%= paginate @articles %>
+		    </div>
+				<table class = 'table table-bordered table-hover'>
+				  <th style='font-size:20px'> Title</th>
+				  <th style='font-size:20px' colspan =2 ><center>Actions</center></th>
+				  <% @articles.each do|article| %>
+					  <tr>
+					    <td style='font-size:15px'><%= link_to article.title, article_path(article.id), method: :get %></td>
+				  
+					    <td style='font-size:15px'><% if can? :update, article %>
+					      <%= link_with_icon(:pencil, '', edit_article_path(id: article.id), method: :get)%><%else%>N/A<%end%>
+					    </td>
+					    <td style='font-size:15px'><% if can? :destroy, article %>
+					    <%= link_with_icon(:trash, '', article_path(id: article.id), method: :delete, data: { confirm: 'Are you sure?'})%>
+					    <%else%>N/A
+					    <%end%>
+					    </td>
+				    </tr>
+				  <%end%>
+				</table>
+				<div align='center'>
+		      <%= paginate @articles %>
+		    </div>
+				<div style= 'font-size:30px'>
+				  <%= link_with_icon('arrow-left','back', root_path, method: :get) %>
+				</div>
+			</div>
+		</body>
+	</center>
+<%end%>

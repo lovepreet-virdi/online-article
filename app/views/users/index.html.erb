@@ -1,0 +1,34 @@
+<body style="background-image: url('/home/lovepreets/Desktop/home.jpeg')">
+  <center>
+    <% if flash[:success] %>
+      <div class = 'alert alert-success alert-dismissable' >
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+        <%= flash[:success] %>
+      </div>
+    <% elsif flash[:failure] %>
+      <div class = 'alert alert-danger alert-dismissable' >
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+        <%= flash[:failure] %>
+      </div>
+    <%end%>
+    <h1>Welcome <strong class=text-primary><%= current_user.name.titleize%></strong></h1>
+    <nav class='navbar navbar-inverse'>
+      <div  class='container-fluid'>
+        <ul class='nav navbar-nav'>
+          <% if can? :manage, :all %>
+            <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
+          <%end%>
+
+          <% if cannot? :manage, :all %>
+            <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
+
+            <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
+            <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+          <% end %>
+
+          <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+        </ul>
+      </div>
+    </nav>
+  </center>
+</body>
