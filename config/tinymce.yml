@@ -1,8 +1,7 @@
 toolbar:
- bold italic underline | undo redo | bullets | alignleft aligncenter alignright
+ bold italic underline | undo redo |  alignleft aligncenter alignright
   - image | link
 plugins:
   - image
   - link
   - table
-  - bullets
