@@ -18,8 +18,8 @@
 		      <%= paginate @articles %>
 		    </div>
 				<table class = 'table table-bordered table-hover'>
-				  <th style='font-size:20px'> Title</th>
-				  <th style='font-size:20px' colspan =2 ><center>Actions</center></th>
+				  <th style='font-size:20px;color: black;'> Title</th>
+				  <th style='font-size:20px; color: black;' colspan =2 ><center>Actions</center></th>
 				  <% @articles.each do|article| %>
 					  <tr>
 					    <td style='font-size:15px'><%= link_to article.title, article_path(article.id), method: :get %></td>
