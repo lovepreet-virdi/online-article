@@ -8,20 +8,78 @@ RailsAdmin.config do |config|
       field :password_confirmation
     end
   end
-config.excluded_models << 'User'
+  config.excluded_models << 'User'
   config.model 'Article' do
     list do
       field :id
+      field :user_id
       field :title
-      field :description
-      field :category
-      field :content
+      field :description do
+        formatted_value do # used in form views
+          value.html_safe
+        end
+
+        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+          value.html_safe
+        end
+
+        export_value do
+          value.html_safe # used in exports, where no html/data is allowed
+        end
+      end
     end
+
+    show do
+      field :id
+      field :user_id
+      field :title
+      field :description do
+        formatted_value do # used in form views
+          value.html_safe
+        end
+
+        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+          value.html_safe
+        end
+
+        export_value do
+          value.html_safe # used in exports, where no html/data is allowed
+        end
+      end
+      field :content do
+        formatted_value do # used in form views
+          value.html_safe
+        end
+
+        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+          value.html_safe
+        end
+
+        export_value do
+          value.html_safe # used in exports, where no html/data is allowed
+        end
+      end
+    end
+
     edit do
       field :title
-      field :description
+      field :description do
+        formatted_value do # used in form views
+          value.html_safe
+        end
+
+        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+          value.html_safe
+        end
+
+        export_value do
+          value.html_safe # used in exports, where no html/data is allowed
+        end
+      end
       field :category
-      field :content
+      field :content do
+        partial 'content'
+      end
       field :user_id, :hidden do
      
         default_value do
