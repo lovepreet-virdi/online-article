@@ -1,35 +1,39 @@
-<div class ='container-fluid'>
-	<div class='navbar navbar-inverse' style="position:absolute;top:0px;left:0px;width:100%;">
-	  <%=link_with_icon('arrow-left', 'Back', articles_path, style: 'padding: 14px 16px;text-decoration: none;font-size: 17px;')%>
-    <%=link_with_icon('check-square', 'Review Article', review_article_path, style: 'padding: 14px 16px;text-decoration: none;font-size: 17px;')%>
-		<%=link_with_icon(:download, 'Download Pdf', article_path(format:'pdf'), style: 'padding: 14px 16px;text-decoration: none;font-size: 17px;')%>
-		<%=link_with_icon(:home, 'Home', root_path, style: 'padding: 14px 16px;text-decoration: none;font-size: 17px;')%>
-	</div>
-	<div class= 'row' style="margin-top:4%">
-	  <div class= 'col-lg-4' style= 'overflow:auto' >
-	  <%= image_tag @article.file.url if@article.file?%>
-	  </div>
-	  <div class= 'col-lg-8' style='float:left'>
-		
-			<div class = 'row'>
-			  <div class ='col-lg-2'><strong>Title:&nbsp;&nbsp;</strong></div>
-			  <div class ='col-lg-10'><%= @article.title%></div>
-			</div>
+<nav class='navbar navbar-inverse'>
+	<ul class ='nav navbar-nav'>
+	  <li><%=link_with_icon('arrow-left', 'Back', articles_path)%></li>
+    <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+		<li><%=link_with_icon(:download, 'Download Pdf', article_path(format:'pdf'))%></li>
+	</ul>
+	<ul class = 'pull-right nav navbar-nav'>
+	  <li><%=link_with_icon(:home, 'Home', root_path)%></li>
+	  <li style='right:0px;' class='active' ><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+	</ul>
+</nav>
 
-			<div class = 'row'>
-			  <div class ='col-lg-2'><strong>Category:&nbsp;&nbsp;</strong></div>
-			  <div class ='col-lg-10'><%= @article.category%></div>
-			</div>
+<div class= 'row' style="margin-top:6%">
+  <div class= 'col-lg-4' style= 'overflow:auto' >
+  <%= image_tag @article.file.url if@article.file?%>
+  </div>
+  <div class= 'col-lg-8' style='float:left'>
+		<div class = 'row'>
+		  <div class ='col-lg-2'><strong>Title:&nbsp;&nbsp;</strong></div>
+		  <div class ='col-lg-10'><%= @article.title%></div>
+		</div>
 
-	    <div class = 'row'>
-			  <div class ='col-lg-2'><strong>Description:&nbsp;&nbsp;</strong></div>
-			  <div class ='col-lg-10'><%=@article.description.html_safe%></div>
-			</div>
+		<div class = 'row'>
+		  <div class ='col-lg-2'><strong>Category:&nbsp;&nbsp;</strong></div>
+		  <div class ='col-lg-10'><%= @article.category%></div>
+		</div>
 
-			<div class ='row'>
-			  <div class ='col-lg-2'><Strong>Content:&nbsp;&nbsp;</Strong></div>
-			  <div class ='col-lg-10'><%=@article.content.html_safe%></div>
-			</div>
-    </div>
+    <div class = 'row'>
+		  <div class ='col-lg-2'><strong>Description:&nbsp;&nbsp;</strong></div>
+		  <div class ='col-lg-10'><%=@article.description.html_safe%></div>
+		</div>
+
+		<div class ='row'>
+		  <div class ='col-lg-2'><Strong>Content:&nbsp;&nbsp;</Strong></div>
+		  <div class ='col-lg-10'><%=@article.content.html_safe%></div>
+		</div>
   </div>
 </div>
+
