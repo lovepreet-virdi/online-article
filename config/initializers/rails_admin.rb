@@ -1,5 +1,4 @@
 RailsAdmin.config do |config|
-
   config.model 'User' do
     edit do
       field :name
@@ -18,17 +17,14 @@ RailsAdmin.config do |config|
         formatted_value do # used in form views
           value.html_safe
         end
-
-        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+        pretty_value do # used in list view columns and show views
           value.html_safe
         end
-
         export_value do
           value.html_safe # used in exports, where no html/data is allowed
         end
       end
     end
-
     show do
       field :id
       field :user_id
@@ -37,13 +33,11 @@ RailsAdmin.config do |config|
         formatted_value do # used in form views
           value.html_safe
         end
-
-        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+        pretty_value do # used in list view columns and show views
           value.html_safe
         end
-
         export_value do
-          value.html_safe # used in exports, where no html/data is allowed
+          value.html_safe # used in exports
         end
       end
       field :content do
@@ -51,7 +45,7 @@ RailsAdmin.config do |config|
           value.html_safe
         end
 
-        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+        pretty_value do # used in list view columns and show views
           value.html_safe
         end
 
@@ -64,25 +58,21 @@ RailsAdmin.config do |config|
     edit do
       field :title
       field :description do
-    
-
-        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+        pretty_value do # used in list view columns and show views
           value.html_safe
         end
-
         export_value do
-          value.html_safe # used in exports, where no html/data is allowed
+          value.html_safe # used in exports,
         end
       end
       field :category
       field :content
       field :user_id, :hidden do
-     
         default_value do
           bindings[:view].current_user.id
         end
       end
-    end 
+    end
   end
   config.model 'Assign' do
     edit do
@@ -97,11 +87,8 @@ RailsAdmin.config do |config|
       field :article_id do
         visible true
       end
-    
     end
   end
-
-
   config.authorize_with do
     redirect_to main_app.root_path if !user_signed_in? || current_user.role != true
   end
@@ -120,8 +107,6 @@ RailsAdmin.config do |config|
   # config.authorize_with :pundit
 
   ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
-
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   ## == Gravatar integration ==
@@ -137,7 +122,7 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    # show_in_app
+    show_in_app
 
     ## With an audit adapter, you can add:
     # history_index

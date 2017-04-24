@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
       render new_article_path
     end
   end
-  
+
   def show
     @article = Article.find(params[:id])
     respond_to do |format|
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
     else
       flash[:failure] = 'Article Deletion Failed'
     end
-  redirect_to articles_path
+    redirect_to articles_path
   end
 
   def review_article
@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
   end
 
   def review_article1
-   @article = Assign.find_by('article_id = ? and user_id = ?',params[:assign][:article_id], current_user.id)
+    @article = Assign.find_by('article_id = ? and user_id = ?', params[:assign][:article_id], current_user.id)
     authorize! :review_article1, @article
 
     if @article.update_attributes(reviewer_status: params[:assign][:reviewer_status])
