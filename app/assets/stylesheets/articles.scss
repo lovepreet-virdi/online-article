@@ -9,14 +9,17 @@ img{
 .footer {
 
 background-color: #222;
+width:100%;
+position:fixed ;
 bottom:0px;
 left:0px;
-width:100%;
-position:fixed ! important;
 text-align:right;
-padding: 5px 10px;
+padding: 1px 10px;
 font-size: 17px;
 color:#f2f2f2;
+height:30px;
+z-index:10;
+
 }
 
 .footer a {
@@ -42,7 +45,20 @@ width: 100px;
 text-decoration: none;
 font-size: 17px;
 }
-.wrapper{
-  min-height:100%;
-  position:relative;
+
+.overlay {
+font-weight:100;
+  padding: 2rem;
+  width: 33%;
+  height: 33%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 70%;
+  display: block;
+  color: green;
+  margin:2rem;
+  position: absolute;
+  top: 0%;
+
+background: rgba(0,0,0,0.3);
 }

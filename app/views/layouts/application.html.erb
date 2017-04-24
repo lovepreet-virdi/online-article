@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
     <title>OnlinePeerSystem</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body style="margin-bottom:20%; width:100%; height:auto;  background-image: url(bg3.jpg);" >
 
-  <body >
-  <div style= "background-image: url(main2.jpg);height:100; width:100%">
-    <%= yield %>
-  </div>
-	  <div class = 'footer'>
-	    <a href='https://www.facebook.com/smartdata.enterprises.inc' target='_blank'><i class='fa fa-facebook' aria-hidden='true'></i></a>
-	    <a href='https://www.twiter.com' target='_blank'><i class='fa fa-twitter' aria-hidden='true'></i></a>
-	    &copy;copyright Lovepret Singh <a href='mailto:lovepreetsinghvirdi@gmail.com'><i class='fa fa-envelope' aria-hidden='true'></i></a>
+	  <%= yield %>
 	  </div>
+	  <div class = 'footer' >
+	    <a href='https://www.facebook.com/smartdata.enterprises.inc' target='_blank'>
+	    <i class='fa fa-facebook' aria-hidden='true'></i>
+	    </a>
+	    <a href='https://www.twiter.com' target='_blank'>
+	    <i class='fa fa-twitter' aria-hidden='true'></i>
+	    </a>
+	    &copy;copyright Lovepret Singh <a href='mailto:lovepreetsinghvirdi@gmail.com'><i class='fa fa-envelope' aria-hidden='true'></i></a>
+
   </body>
 </html>
