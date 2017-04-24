@@ -64,9 +64,7 @@ RailsAdmin.config do |config|
     edit do
       field :title
       field :description do
-        formatted_value do # used in form views
-          value.html_safe
-        end
+    
 
         pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
           value.html_safe
@@ -77,9 +75,7 @@ RailsAdmin.config do |config|
         end
       end
       field :category
-      field :content do
-        partial 'content'
-      end
+      field :content
       field :user_id, :hidden do
      
         default_value do

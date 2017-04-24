@@ -17,18 +17,18 @@
 		<body>
 		  <div class= 'container'>
 				<%= tinymce %>
-				<h1 class=text-info>These are the Articles Assigned By Admin</h1>
+				<h1 class=text-info><strong>These are the Articles Assigned By Admin</strong></h1>
 				<div align='center'>
 			    <%= paginate @articles %>
 			  </div>
 				<table class= 'table table-bordered table-hover'>
-				  <th style='font-size:20px;color: black;'> Title</th>
-				  <th style='font-size:20px;color: black;'>Description</th>
-				  <th style='font-size:20px;color: black;'>Category</th>
-				  <th style='font-size:20px;color: black;' colspan =3 >Actions</th>
+				  <th > Title</th>
+				  <th >Description</th>
+				  <th >Category</th>
+				  <th colspan =3 >Actions</th>
 				  <% @articles.each do|article| %>
 					  <tr>
-					    <td> <%= link_to review_articles(article.article_id).title, article_path(article.article_id) %></td>
+					    <td><strong> <%= link_to review_articles(article.article_id).title, article_path(article.article_id) %></strong></td>
 					    <td><%= review_articles(article.article_id).description.html_safe %></td>
 					    <td><%= review_articles(article.article_id).category %></td>
 				      <% if can? :review_article1, article %>

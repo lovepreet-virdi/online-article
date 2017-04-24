@@ -13,21 +13,21 @@
 		<%end%>
 		<body  >
 			<div class='container'>
-			  <h1 class=text-info >These are the available Articles</h1>
+			  <h1 ><strong>These are the available Articles</strong></h1>
 				<div align='center'>
 		      <%= paginate @articles %>
 		    </div>
 				<table class = 'table table-bordered table-hover'>
-				  <th style='font-size:20px;color: black;'> Title</th>
-				  <th style='font-size:20px; color: black;' colspan =2 ><center>Actions</center></th>
+				  <th > Title</th>
+				  <th colspan =2 ><center>Actions</center></th>
 				  <% @articles.each do|article| %>
 					  <tr>
-					    <td style='font-size:15px'><%= link_to article.title, article_path(article.id), method: :get %></td>
+					    <td ><strong><%= link_to article.title, article_path(article.id), method: :get %></strong></td>
 				  
-					    <td style='font-size:15px'><% if can? :update, article %>
+					    <td ><% if can? :update, article %>
 					      <%= link_with_icon(:pencil, '', edit_article_path(id: article.id), method: :get)%><%else%>N/A<%end%>
 					    </td>
-					    <td style='font-size:15px'><% if can? :destroy, article %>
+					    <td ><% if can? :destroy, article %>
 					    <%= link_with_icon(:trash, '', article_path(id: article.id), method: :delete, data: { confirm: 'Are you sure?'})%>
 					    <%else%>N/A
 					    <%end%>

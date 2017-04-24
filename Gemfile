@@ -8,10 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'carrierwave'
-# gem 'prawn'
-# gem 'loofah'
 gem 'wicked_pdf'
-# gem 'pdf-writer'
 gem 'wkhtmltopdf-binary'
 gem "font-awesome-sass"
 gem 'link_with_icon'
