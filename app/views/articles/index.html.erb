@@ -11,7 +11,22 @@
 		    <%= flash[:failure] %>
 		  </div>
 		<%end%>
-		<body  >
+		<nav class='navbar navbar-inverse'>
+      <ul class='nav navbar-nav'>
+    <% if can? :manage, :all %>
+      <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
+    <%end%>
+    <% if cannot? :manage, :all %>
+      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
+      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
+      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+    <%end%>
+  </ul>
+  <ul class= 'pull-right nav navbar-nav'>
+    <li><%=link_with_icon(:home, 'Home', root_path)%></li>
+    <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+  </ul>
+</nav>
 			<div class='container'>
 			  <h1 ><strong>These are the available Articles</strong></h1>
 				<div align='center'>
@@ -38,10 +53,6 @@
 				<div align='center'>
 		      <%= paginate @articles %>
 		    </div>
-				<div style= 'font-size:30px'>
-				  <%= link_with_icon('arrow-left','back', root_path, method: :get) %>
-				</div>
 			</div>
-		</body>
 	</center>
 <%end%>

@@ -12,8 +12,25 @@
       </div>
     <%end%>
   <center>
+  <nav class='navbar navbar-inverse'>
+      <ul class='nav navbar-nav'>
+    <% if can? :manage, :all %>
+      <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
+    <%end%>
+    <% if cannot? :manage, :all %>
+      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
+      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
+      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+    <%end%>
+  </ul>
+  <ul class= 'pull-right nav navbar-nav'>
+    <li><%=link_with_icon(:home, 'Home', root_path)%></li>
+    <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+  </ul>
+</nav>
     <div class='container'>
       <%= tinymce %>
+      
       <h1 class=text-info><strong>Update Article Details</strong></h1>
       <%= form_for @article do|f| %>
         <div class='form-group'>
@@ -55,12 +72,9 @@
           </div>
         </div>
       <div class='row'>
-        <div class ='col-lg-2 col-lg-offset-4'>
+        <div class ='col-lg-2 col-lg-offset-5'>
         <%= f.submit 'Update Article', class: 'btn btn-success' %></div>
       <%end%>
-      <div class ='col-lg-2' style='font-size:30px'>
-      <%= link_with_icon('arrow-left', 'Back', articles_path, method: :get) %></div>
-      </div>
     </div>
   </center>
 <%end%>

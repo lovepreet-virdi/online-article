@@ -5,3 +5,64 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+img{
+ height:auto;
+ width:100%;
+}
+
+.footer {
+
+background-color: #222;
+width:100%;
+position:fixed ;
+bottom:0px;
+left:0px;
+text-align:right;
+padding: 1px 10px;
+font-size: 17px;
+color:#f2f2f2;
+height:30px;
+z-index:10;
+
+}
+
+.footer a {
+float: left;
+display: block;
+text-align: left;
+padding: 5px 10px;
+text-decoration: none;
+font-size: 17px;
+
+}
+
+.right{
+position: absolute;
+top: 0px;
+right: 0px;
+width: 100px;
+}
+
+.nav li
+{
+text-decoration: none;
+font-size: 17px;
+}
+
+.container table a{
+font-size:15px;
+}
+.container th{
+
+  font-size:25px;
+}
+.container td{
+
+  font-size:15px;
+}
+
+.link a
+{
+
+  font-size:15px;
+}

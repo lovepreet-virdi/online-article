@@ -10,10 +10,10 @@
       <%= flash[:failure] %>
     </div>
   <%end%>
-
-  <h1 style="margin:0 0 0 0"> Welcome&nbsp;<strong class= 'text-primary'> <%= current_user.name.titleize%></strong></h1>
 </center>
 <nav class='navbar navbar-inverse'>
+<h1 style="text-align:center;color:green;"> Welcome&nbsp;<strong> <%= current_user.name.titleize%></strong></h1>
+<hr style="margin:0 0 0 0">
   <ul class='nav navbar-nav'>
     <% if can? :manage, :all %>
       <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>

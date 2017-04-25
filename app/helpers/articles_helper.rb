@@ -5,7 +5,7 @@ module ArticlesHelper
   end
 
   def categories
-    categories = ['Art and entertainment', 'Cars and Other Vehicles', 'Computers & Electronics', 'Education & Communications', 'Family Life',
+    ['Art and entertainment', 'Cars and Other Vehicles', 'Computers & Electronics', 'Education & Communications', 'Family Life',
     'Finance & Business', 'Food & Entertaining', 'Health', 'Hobbies & Crafts', 'Holidays & Traditions', 'Home and Garden',
     'Personal Care and Style', 'Pets and Animals', 'Philosophy and Religion', 'Relationships', 'Sports and Fiteness', 'Travel', 'Work World', 'Youth']
   end
