@@ -17,6 +17,7 @@
 			    table{width:800px;}
 		    </style>
 		<nav class='navbar navbar-inverse'>
+		<img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
       <ul class='nav navbar-nav'>
     <% if can? :manage, :all %>
       <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
