@@ -12,8 +12,10 @@
 		  </div>
 		<%end%>
 		<style>
-		  td{font-size:15px;}
-		</style>
+			    table, th,td
+			    {border:1px solid black;padding:4px 4px 4px 4px;}
+			    table{width:800px;}
+		    </style>
 		<nav class='navbar navbar-inverse'>
       <ul class='nav navbar-nav'>
     <% if can? :manage, :all %>
@@ -32,11 +34,11 @@
 </nav>
 		  <div class= 'container'>
 				<%= tinymce %>
-				<h1 class=text-info><strong>These are the Articles Assigned By Admin</strong></h1>
+				<h1><strong>These are the Articles Assigned By Admin</strong></h1>
 				<div align='center'>
 			    <%= paginate @articles %>
 			  </div>
-				<table class= 'table table-bordered table-hover'>
+				<table class= 'table-hover'>
 				  <th > Title</th>
 				  <th >Description</th>
 				  <th >Category</th>

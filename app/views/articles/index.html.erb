@@ -32,7 +32,12 @@
 				<div align='center'>
 		      <%= paginate @articles %>
 		    </div>
-				<table class = 'table table-bordered table-hover'>
+		    <style>
+			    table, th,td
+			    {border:1px solid black;padding:4px 4px 4px 4px;}
+			    table{width:800px;}
+		    </style>
+				<table class = 'table-hover' ">
 				  <th > Title</th>
 				  <th colspan =2 ><center>Actions</center></th>
 				  <% @articles.each do|article| %>

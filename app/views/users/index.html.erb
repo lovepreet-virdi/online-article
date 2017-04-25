@@ -11,7 +11,8 @@
     </div>
   <%end%>
 </center>
-<nav class='navbar navbar-inverse'>
+<nav class='navbar navbar-inverse' style="margin-bottom:0px;">
+<img class='navbar-brand img-circle' src = 'logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
 <h1 style="text-align:center;color:green;"> Welcome&nbsp;<strong> <%= current_user.name.titleize%></strong></h1>
 <hr style="margin:0 0 0 0">
   <ul class='nav navbar-nav'>
@@ -28,3 +29,6 @@
     <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
   </ul>
 </nav>
+<div style="background-image: url(/bg3.jpg);width: 100%;height:493px;margin: 0 0 0 0;">
+
+</div>

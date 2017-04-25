@@ -1,8 +1,9 @@
 toolbar:
  bold italic underline | undo redo |  alignleft aligncenter alignright | bullist numlist | outdent | indent 
-  - image | link
+  - image | link | emoticons
 plugins:
   - image
   - link
   - table
   - lists
+  - emoticons
