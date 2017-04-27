@@ -1,4 +1,14 @@
-
+<% if flash[:success] %>
+  <div style="margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+    <%= flash[:success] %>
+  </div>
+<% elsif flash[:failure] %>
+  <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+    <%= flash[:failure] %>
+  </div>
+<%end%>
 <nav class='navbar navbar-inverse' style="margin-bottom:0px;">
 <img class='navbar-brand img-circle' src = 'logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
 <h1 style="text-align:center;color:green;"> Welcome&nbsp;<strong> <%= current_user.name.titleize%></strong></h1>
@@ -18,19 +28,5 @@
     <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
   </ul>
 </nav>
-<center>
-  <% if flash[:success] %>
-    <div class = 'alert alert-success alert-dismissable' >
-      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-      <%= flash[:success] %>
-    </div>
-  <% elsif flash[:failure] %>
-    <div class = 'alert alert-danger alert-dismissable' >
-      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-      <%= flash[:failure] %>
-    </div>
-  <%end%>
-</center>
-<div  style="background-image: url(/bg3.jpg);width: 100%;height:493px;margin: 0 0 0 0;">
 
-</div>
+<div  style="background-image: url(/bg3.jpg);width: 100%;height:493px;margin: 0 0 0 0;"></div>

@@ -1,5 +1,6 @@
 # gdfgd
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   def index
     authorize! :index, :article
     @articles = Article.all.page(params[:page]).per(5)
@@ -23,6 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    authorize! :index, :article
     @article = Article.find(params[:id])
     respond_to do |format|
       format.html
@@ -75,6 +77,11 @@ class ArticlesController < ApplicationController
       flash[:failure] = 'Review Failed'
     end
     redirect_to review_article_path
+  end
+
+  def updateusers
+    @users = User.where.not('article_id = ? || role = ?', params[:id], true)
+    byebug
   end
 
   private

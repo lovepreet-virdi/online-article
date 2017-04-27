@@ -17,3 +17,17 @@
 //= require turbolinks
 //= require_tree .
 //= require tinymce
+
+$(document).ready(function(){
+
+    $('#assign_article_id').on('change', function(){
+       alert(value);
+       var value = $('#assign_article_id option:selected').val();
+
+       $.ajax('updateusers/'+value,{
+          success: function(response){
+          }
+       });
+    });
+
+});
