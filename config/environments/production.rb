@@ -43,12 +43,12 @@ config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => "587",
-    :domain => "mydomain.net",
     :user_name => "lovepreetsinghvirdi@gmail.com",
     :password => "luv13803",
     :authentication => "plain",
     :enable_starttls_auto => true
   } 
+  config.action_mailer.default_url_options = { host: "https://online-peer-system.herokuapp.com" }
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   if ENV['RAILS_LOG_TO_STDOUT'].present?
