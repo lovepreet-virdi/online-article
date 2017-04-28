@@ -1,3 +1,4 @@
+
 <% if flash[:success] %>
   <div style="margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
     <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
@@ -24,9 +25,11 @@
     <%end%>
   </ul>
   <ul class= 'pull-right nav navbar-nav'>
-    <li><a href='<%=edit_user_registration_path(current_user.id)%>'><i class='fa fa-cog fa-spin '></i>Edit profile</a>
+    <li><a href='<%=edit_user_registration_path(current_user.id)%>'><i class='fa fa-cog fa-spin '></i>Edit profile</a></li>
     <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
   </ul>
 </nav>
 
-<div  style="background-image: url(/bg3.jpg);width: 100%;height:493px;margin: 0 0 0 0;"></div>
+<div  >
+  <img src ='/bg3.jpg' alt = 'img' >
+</div>

@@ -16,12 +16,12 @@
   </ul>
 </nav><div class= 'container'><center>
   <% if flash[:success] %>
-    <div class = 'alert alert-success alert-dismissable' >
+    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
         <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
     <%= flash[:success] %>
     </div>
   <% elsif flash[:failure] %>
-    <div class = 'alert alert-danger alert-dismissable' >
+    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
       <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
     <%= flash[:failure] %>
     <br>
