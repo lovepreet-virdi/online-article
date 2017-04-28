@@ -1,14 +1,5 @@
-<% if flash[:success] %>
-  <div style="margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
-    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-    <%= flash[:success] %>
-  </div>
-<% elsif flash[:failure] %>
-  <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-    <%= flash[:failure] %>
-  </div>
-<%end%>
+<%= bootstrap_devise_error_messages! %>
+
 <nav class='navbar navbar-inverse '>
   <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
 
