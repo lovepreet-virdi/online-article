@@ -1,5 +1,5 @@
 # bfd
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'sdeilovepreet@gmail.com'
   layout 'mailer'
 end
