@@ -16,7 +16,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
   # config.action_controller.asset_host = 'http://assets.example.com'
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -47,6 +47,7 @@ config.action_mailer.delivery_method = :smtp
     :password => "luv13803",
     :authentication => "plain",
     :enable_starttls_auto => true
+    domain: 'gmail.com'
   } 
   config.action_mailer.default_url_options = { host: "https://online-peer-system.herokuapp.com" }
   # Use a different logger for distributed setups.
