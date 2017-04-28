@@ -46,7 +46,7 @@ config.action_mailer.delivery_method = :smtp
     :user_name => "lovepreetsinghvirdi@gmail.com",
     :password => "luv13803",
     :authentication => "plain",
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
     domain: 'gmail.com'
   } 
   config.action_mailer.default_url_options = { host: "https://online-peer-system.herokuapp.com" }
