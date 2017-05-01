@@ -10,8 +10,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body style='background-color: #DEB887; height:100%; margin-bottom:30px' >
+  <center>
+<%- flash.each do |name, msg| -%>
+  <%if name == 'notice' || name == 'success'%>
+     <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
+      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+	    <%= msg %>
+		 </div>
+	<%else%>
+    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+		  <%= msg %>
+		</div>
+  <%end %> 
+<%end%>
+</center>
+	  <%= yield %> 
 
-	  <%= yield %>
 	  <div class = 'footer' >
 	    <a href='https://www.facebook.com/smartdata.enterprises.inc' target='_blank'>
 	    <i class='fa fa-facebook' aria-hidden='true'></i>

@@ -1,19 +1,18 @@
+  <center><% if devise_error_messages!.present?%>
+        <div class = 'alert alert-danger alert-dismissable' style= 'margin: 0px 0px 0px 0px' >
+          <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+          <%= devise_error_messages! %>
+        </div>
+     <%end%>
 <nav class='navbar navbar-inverse'>
   <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
   <h1 style='color:green; text-align:center;'>
   <strong>Welcome To Online Peer System</strong></h1>
 </nav>
 <div class='container'>
-  <center>
-    <h2><strong>Sign up</strong></h2>
 
+    <h2><strong>Sign up</strong></h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-     <% if devise_error_messages!.present?%>
-        <div class = 'alert alert-danger alert-dismissable' >
-          <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-          <%= devise_error_messages! %>
-        </div>
-     <%end%>
       <div class='field'>
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true %>

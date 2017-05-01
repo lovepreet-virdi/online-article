@@ -3,8 +3,12 @@
 	<h2><strong>Resend confirmation instructions</strong></h2>
 
 	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-	  <%= devise_error_messages! %>
-
+	   <%if devise_error_messages!%>
+   <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+		    <%= devise_error_messages! %>
+		 </div>
+  <%end%>
 	  <div class='field'>
 	    <%= f.label :email %><br />
 	    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>

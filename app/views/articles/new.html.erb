@@ -1,3 +1,15 @@
+<center>
+  <% if flash[:failure] %>
+    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+    <br>
+    <% @article.errors.full_messages.each do |msg| %>
+      <%= msg%>
+      <br>
+    <%end%>
+    </div>
+  <%end%>
+</center>
   <nav class='navbar navbar-inverse'>
   <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
       <ul class='nav navbar-nav'>
@@ -15,22 +27,8 @@
     <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
   </ul>
 </nav><div class= 'container'><center>
-  <% if flash[:success] %>
-    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
-        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-    <%= flash[:success] %>
-    </div>
-  <% elsif flash[:failure] %>
-    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-    <%= flash[:failure] %>
-    <br>
-      <% @article.errors.full_messages.each do |msg| %>
-        <%= msg%>
-        <br>
-      <%end%>
-    </div>
-  <%end%>
+
+  
     <%= tinymce %>
     <h1 class=text-info ><strong>Enter Article Details</strong></h1>
     <%= form_for @article do|f| %>

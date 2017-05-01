@@ -1,85 +1,79 @@
 <%if can? :update, @article %>
- <center>
-  <% if flash[:success] %>
-    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
+  <center>
+    <% if flash[:failure] %>
+      <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
       <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-      <%= flash[:success] %>
-    </div>
-  <% elsif flash[:failure] %>
-    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-      <%= flash[:failure] %>
       <br>
       <% @article.errors.full_messages.each do |msg| %>
         <%= msg%>
         <br>
       <%end%>
-    </div>
-  <%end%>
-  <nav class='navbar navbar-inverse'>
-    <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
-        <ul class='nav navbar-nav'>
-      <% if can? :manage, :all %>
-        <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
-      <%end%>
-      <% if cannot? :manage, :all %>
-        <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
-        <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
-        <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
-      <%end%>
-    </ul>
-    <ul class= 'pull-right nav navbar-nav'>
-      <li><%=link_with_icon(:home, 'Home', root_path)%></li>
-      <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
-    </ul>
-  </nav>
-    <div class='container'>
-      <%= tinymce %>
-      
-      <h1 class=text-info><strong>Update Article Details</strong></h1>
-      <%= form_for @article do|f| %>
-        <div class='form-group'>
-          <%= f.label 'Title:' %>
-            <%= f.text_field :title %>
-        </div>
+      </div>
+    <%end%>
+    <nav class='navbar navbar-inverse'>
+      <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
+          <ul class='nav navbar-nav'>
+        <% if can? :manage, :all %>
+          <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
+        <%end%>
+        <% if cannot? :manage, :all %>
+          <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
+          <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
+          <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+        <%end%>
+      </ul>
+      <ul class= 'pull-right nav navbar-nav'>
+        <li><%=link_with_icon(:home, 'Home', root_path)%></li>
+        <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+      </ul>
+    </nav>
+      <div class='container'>
+        <%= tinymce %>
+        
+        <h1 class=text-info><strong>Update Article Details</strong></h1>
+        <%= form_for @article do|f| %>
+          <div class='form-group'>
+            <%= f.label 'Title:' %>
+              <%= f.text_field :title %>
+          </div>
 
-        <div class='form-group'>
-          <%= f.label 'Category:' %>
-          <%= f.select :category, options_for_select(categories) %>
-          <%= f.hidden_field :id %>
-        </div>
-        
-        <div class='row'>
-          <div class='col-lg-6'>
+          <div class='form-group'>
+            <%= f.label 'Category:' %>
+            <%= f.select :category, options_for_select(categories) %>
+            <%= f.hidden_field :id %>
+          </div>
+          
+          <div class='row'>
+            <div class='col-lg-6'>
+              <div class='col-lg-2'>
+                <%= f.label 'Description:' %>
+              </div>
+              <div class='col-lg-10'>
+                <%= f.text_area :description, :class => 'tinymce'%>
+              </div>
+            </div>
+            <div class='col-lg-6'>
+              <div class='col-lg-2'>
+                <%= f.label 'Content:' %>
+              </div>
+              <div class='col-lg-10'>
+                <%= f.text_area :content, :class => 'tinymce' %>
+              </div>
+            </div>
+          </div>
+          
+          <div class='row'>
+            <div class='col-lg-2 col-lg-offset-4'>
+              <%= f.label 'Upload CoverPhoto:'%>
+            </div>
             <div class='col-lg-2'>
-              <%= f.label 'Description:' %>
-            </div>
-            <div class='col-lg-10'>
-              <%= f.text_area :description, :class => 'tinymce'%>
+              <%= f.file_field :file%>
             </div>
           </div>
-          <div class='col-lg-6'>
-            <div class='col-lg-2'>
-              <%= f.label 'Content:' %>
-            </div>
-            <div class='col-lg-10'>
-              <%= f.text_area :content, :class => 'tinymce' %>
-            </div>
-          </div>
-        </div>
-        
         <div class='row'>
-          <div class='col-lg-2 col-lg-offset-4'>
-            <%= f.label 'Upload CoverPhoto:'%>
-          </div>
-          <div class='col-lg-2'>
-            <%= f.file_field :file%>
-          </div>
-        </div>
-      <div class='row'>
-        <div class ='col-lg-2 col-lg-offset-5'>
-        <%= f.submit 'Update Article', class: 'btn btn-success' %></div>
-      <%end%>
-    </div>
+          <div class ='col-lg-2 col-lg-offset-5'>
+          <%= f.submit 'Update Article', class: 'btn btn-success' %></div>
+        <%end%>
+      </div>
   </center>
 <%end%>

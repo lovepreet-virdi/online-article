@@ -1,16 +1,5 @@
 <%if can? :review_article, :assign %>
 	<center>
-		<% if flash[:success] %>
-		  <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
-        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-		    <%= flash[:success] %>
-		  </div>
-		<% elsif flash[:failure] %>
-		  <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-		    <%= flash[:failure] %>
-		  </div>
-		<%end%>
 		<style>
 			    table, th,td
 			    {border:1px solid black;padding:4px 4px 4px 4px;}
