@@ -19,15 +19,19 @@
  width:100%;
 }
 
+body
+{
+	background-color: #DEB887; height:100%; margin-bottom:30px; color :black;
+}
 .footer {
-background-color: #222 !important;
-width: 100% !important;
+background-color: #222 ;
+width: 100% ;
 position: fixed;
 bottom: 0px;
 left: 0px;
 margin: 0px 0px 0px 0px;
-z-index: 5 !important;
-padding: 0 !important;
+z-index: 5 ;
+padding: 0 ;
 height: auto ;
 }
 .navbar-inverse
@@ -49,15 +53,15 @@ height: auto ;
   border-radius: 0px;
 }
 .footer a {
-	color: #337ab7 !important; 
+	color: #337ab7 ; 
 	float: left;
 	padding: 5px 5px 5px 5px;
 	font-size: 14px;
 }
  h6{
 	float:right;
-	font-size: 14px !important;
-	color: white !important;
+	font-size: 14px ;
+	color: white ;
 	padding-right:0px;
 	padding-bottom:5px;
 	padding-top:5px;
