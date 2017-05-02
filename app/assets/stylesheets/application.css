@@ -53,8 +53,8 @@ float: left;
 padding: 5px 5px 5px 5px;
 font-size: 14px;
 }
- .footer h6{
- 	float:right;
+ h6{
+float:right;
 font-size: 14px !important;
 color: white !important;
 padding-right:0px;
