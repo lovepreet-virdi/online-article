@@ -18,13 +18,9 @@ position:fixed;
 bottom:0px;
 left:0px;
 margin: 0px 0px 0px 0px;
-text-align:right !important;
-padding: 0 !important;
-font-size: 17px !important;
-color:#f2f2f2 !important;
-height:auto !important;
 z-index:5 !important;
-
+padding: 0 !important;
+height:auto !important;
 }
 .navbar-inverse
 { margin:0px 0px 0px 0px;
@@ -53,6 +49,15 @@ text-decoration: none;
 font-size: 17px;
 
 }
+ .footer h1{
+text-align:right !important;
+font-size: 17px !important;
+color:#f2f2f2 !important;
+padding-right:0px;
+padding-bottom:5px;
+padding-top:5px;
+margin: 0px 0px 0px 0px;
+ }
 
 .right{
 position: absolute;
