@@ -49,18 +49,19 @@ height: auto ;
   border-radius: 0px;
 }
 .footer a {
-float: left;
-padding: 5px 5px 5px 5px;
-font-size: 14px;
+	color: #337ab7 !important; 
+	float: left;
+	padding: 5px 5px 5px 5px;
+	font-size: 14px;
 }
  h6{
-float:right;
-font-size: 14px !important;
-color: white !important;
-padding-right:0px;
-padding-bottom:5px;
-padding-top:5px;
-margin: 0px 0px 0px 0px;
+	float:right;
+	font-size: 14px !important;
+	color: white !important;
+	padding-right:0px;
+	padding-bottom:5px;
+	padding-top:5px;
+	margin: 0px 0px 0px 0px;
  }
 
 .right{
@@ -84,12 +85,6 @@ font-size:15px;
   font-size:25px;
 }
 .container td{
-
-  font-size:15px;
-}
-
-.link a
-{
 
   font-size:15px;
 }
