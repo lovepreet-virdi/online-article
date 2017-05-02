@@ -19,10 +19,6 @@
  width:100%;
 }
 
-body
-{
-	background-color: #DEB887 !important; height:100%; margin-bottom:30px; color :black;
-}
 .footer {
 background-color: #222 ;
 width: 100% ;
@@ -53,18 +49,14 @@ height: auto ;
   border-radius: 0px;
 }
 .footer a {
-	color: #337ab7 ; 
-	float: left;
 	padding: 5px 5px 5px 5px;
 	font-size: 14px;
 }
- h6{
+ .footer h6{
 	float:right;
 	font-size: 14px ;
 	color: white ;
-	padding-right:0px;
-	padding-bottom:5px;
-	padding-top:5px;
+	padding:5px 0 5px 5px;
 	margin: 0px 0px 0px 0px;
  }
 
