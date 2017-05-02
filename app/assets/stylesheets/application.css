@@ -20,19 +20,18 @@
 }
 
 .footer {
-color:#f2f2f2 !important;
 background-color: #222 !important;
-width:100% !important;
-position:fixed;
-bottom:0px;
-left:0px;
+width: 100% !important;
+position: fixed;
+bottom: 0px;
+left: 0px;
 margin: 0px 0px 0px 0px;
-z-index:5 !important;
+z-index: 5 !important;
 padding: 0 !important;
-height:auto ;
+height: auto ;
 }
 .navbar-inverse
-{ margin:0px 0px 0px 0px;
+{ margin: 0px 0px 0px 0px;
 }
 .navbar
 {
@@ -51,16 +50,13 @@ height:auto ;
 }
 .footer a {
 float: left;
-display: block;
-text-align: left;
 padding: 5px 5px 5px 5px;
-font-size: 17px;
-
+font-size: 14px;
 }
  .footer h6{
-text-align:right !important;
+ 	float:right;
 font-size: 14px !important;
-color:#f2f2f2 !important;
+color: white !important;
 padding-right:0px;
 padding-bottom:5px;
 padding-top:5px;
