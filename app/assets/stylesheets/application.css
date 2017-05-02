@@ -21,7 +21,7 @@
 
 body
 {
-	background-color: #DEB887; height:100%; margin-bottom:30px; color :black;
+	background-color: #DEB887 !important; height:100%; margin-bottom:30px; color :black;
 }
 .footer {
 background-color: #222 ;
