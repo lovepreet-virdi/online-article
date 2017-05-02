@@ -13,6 +13,7 @@ RailsAdmin.config do |config|
       field :id
       field :user_id
       field :title
+      field :publish
       field :description do
         formatted_value do # used in form views
           value.html_safe
@@ -29,6 +30,9 @@ RailsAdmin.config do |config|
       field :id
       field :user_id
       field :title
+      field :publish do
+        partial 'publish'
+      end
       field :description do
         formatted_value do # used in form views
           value.html_safe
@@ -53,6 +57,7 @@ RailsAdmin.config do |config|
           value.html_safe # used in exports, where no html/data is allowed
         end
       end
+      
     end
 
     edit do
@@ -112,7 +117,7 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar true
-
+  config.compact_show_view = false
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory

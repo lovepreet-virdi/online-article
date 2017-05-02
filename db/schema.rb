@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404132950) do
+ActiveRecord::Schema.define(version: 20170501105220) do
 
   create_table "articles", force: :cascade do |t|
     t.string  "title"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170404132950) do
     t.string  "category"
     t.integer "user_id"
     t.integer "reviewer_id"
-    t.text    "content",     null: false
+    t.text    "content",                     null: false
     t.string  "file"
+    t.boolean "publish",     default: false
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

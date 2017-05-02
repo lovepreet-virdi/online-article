@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
     authorize! :index, :article
-    @articles = Article.all.page(params[:page]).per(5)
+    @articles = Article.where('publish= ? or user_id = ?', true, current_user.id).page(params[:page]).per(5)
   end
 
   def new
@@ -39,6 +39,17 @@ class ArticlesController < ApplicationController
     authorize! :update, @article
     if @article.update_attributes(update_params)
       flash[:success] = 'Article Updated Successfully'
+      redirect_to articles_path
+    else
+      flash[:failure] = 'Article Updation Failed'
+      redirect_to edit_article_path(params[:id])
+    end
+  end
+  def publish
+    @article = Article.find(params[:id])
+    authorize! :manage, :all
+    if @article.update_attributes(publish: params[:article][:publish])
+      flash[:success] = 'Article Published Successfully'
       redirect_to articles_path
     else
       flash[:failure] = 'Article Updation Failed'

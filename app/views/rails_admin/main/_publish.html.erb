@@ -1,0 +1,13 @@
+<form  method='post' method = '/articles/publish'>
+  <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden' />
+  <%= hidden_field :article, :id, value: id %>
+  <% if article.publish == true%>
+    Already Published
+  <%elsif article.reviewer_status == false%>
+    Already Rejected
+  <%else%>
+    <%= radio_button :article, :publish, true%>Publish
+    <input type='submit' value = 'Save Changes' class = 'btn btn-warning'>
+  <%end%>
+  </td>
+</form>

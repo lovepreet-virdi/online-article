@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'assign_article', to: 'articles#assign_article', as: 'assign_article'
   get 'publish_article', to: 'articles#publish_article', as: 'publish_article'
   post 'assign_article1', to: 'articles#assign_article1', as: 'assign_article1'
+  post 'articles/publish', to: 'articles#publish'
   resources :articles
   root to: 'users#index'
 end
