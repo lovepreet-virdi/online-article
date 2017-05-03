@@ -11,30 +11,58 @@
 	</ul>
 </nav>
 <div class='container'>
-<div class= 'row' '>
-  <div class= 'col-lg-4' style= 'overflow:auto' >
-  <%= image_tag @article.file.url if@article.file?%>
-  </div>
-  <div class= 'col-lg-8' style='float:left'>
-		<div class = 'row'>
-		  <div class ='col-lg-2'><strong>Title:&nbsp;&nbsp;</strong></div>
-		  <div class ='col-lg-10'><%= @article.title%></div>
-		</div>
+	<div class= 'row'>
+	  <div class= 'col-lg-4' style= 'overflow:auto' >
+	  <%= image_tag @article.file.url if@article.file?%>
+	  </div>
+	  <div class= 'col-lg-8' style='float:left'>
+		  <div class='well'>
+	      <div class = 'article_title'>
+	      <div class='col-lg-2'>
+				<strong>Title:&nbsp;&nbsp;</div><%= @article.title%></strong>
+			  </div><hr>
+			  <div class ='col-lg-2'><strong>Category:&nbsp;&nbsp;</strong></div>
+			  <%= @article.category%>
+			  <hr>
+			  <div class ='col-lg-2'><strong>Description:&nbsp;&nbsp;</strong></div>
+			  <%=@article.description.html_safe%><hr>
+			  <div class ='col-lg-2'><Strong>Content:&nbsp;&nbsp;</Strong></div>
+			  <%=simple_format(@article.content)%>
+	    </div>
 
-		<div class = 'row'>
-		  <div class ='col-lg-2'><strong>Category:&nbsp;&nbsp;</strong></div>
-		  <div class ='col-lg-10'><%= @article.category%></div>
-		</div>
-
-    <div class = 'row'>
-		  <div class ='col-lg-2'><strong>Description:&nbsp;&nbsp;</strong></div>
-		  <div class ='col-lg-10'><%=@article.description.html_safe%></div>
-		</div>
-
-		<div class ='row'>
-		  <div class ='col-lg-2'><Strong>Content:&nbsp;&nbsp;</Strong></div>
-		  <div class ='col-lg-10'><%=@article.content.html_safe%></div>
-		</div>
+			<div class ='well'>
+			  <div class ='col-lg-2'><br><Strong>Add a Comment:&nbsp;&nbsp;</Strong></div><br>
+	      <%=form_for @comments  do|f|%>
+	      <%=f.hidden_field :article_id, value: @article.id%>
+	      <%=f.hidden_field :user_id, value: current_user.id%>
+	      <%=f.text_area :comment%>
+	      <%=f.submit "comment" %>
+	      <%end%>
+			</div>
+	  </div>
+	</div>
+	<div class =' row'>
+	  <div class='well'>
+	    <h3 align='left'><strong>Comments</strong></h3>
+	  </div>
+	</div>
+  <div class='well'>
+    <%@article_comments.each do |comment_object|%>
+			<div class = 'row'>
+			  <div class='col-lg-6'>
+			    <%=comment_object.comment%>
+			  </div>
+			  <div class='col-lg-2 col-lg-offset-4'>
+			    <div class = 'article_actions'>
+			      <% if can? :update, comment_object %>
+				      <%= link_with_icon(:pencil, '', edit_comment_path(id: comment_object.id), method: :get)%><%else%><%end%>
+				    <% if can? :destroy, comment_object %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <%= link_with_icon(:trash, '', comment_path(id: comment_object.id), method: :delete, data: { confirm: 'Are you sure?'})%>
+				    <%else%><%end%>
+		      </div>
+		    </div>
+			</div><hr> 
+    <%end%>
   </div>
 </div>
-</div>
+

@@ -11,15 +11,25 @@ class Ability
       can :index, :article
       can :create, :article
       can :review_article, :assign
+      can :review_article1, Assign do |article|
+        article.user_id == user.id
+      end
       can :update, Article do |article|
         article.user_id == user.id
       end
       can :destroy, Article do |article|
         article.user_id == user.id
       end
-      can :review_article1, Assign do |article|
-        article.user_id == user.id
+
+      # comment section
+        can :update, Comment do |comment|
+        comment.user_id == user.id
       end
+      can :destroy, Comment do |comment|
+        comment.user_id == user.id
+      end
+      can :index, :comment
+      can :create, :comment
     end
     # The first argument to `can` is the action you are giving the user
     # permission to do.

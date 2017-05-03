@@ -26,6 +26,8 @@ class ArticlesController < ApplicationController
   def show
     authorize! :index, :article
     @article = Article.find(params[:id])
+    @article_comments = Comment.where(article_id: params[:id])
+    @comments = Comment.new
     respond_to do |format|
       format.html
       format.pdf do

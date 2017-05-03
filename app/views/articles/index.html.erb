@@ -1,53 +1,51 @@
 <%if can? :index, :article %>
 	<center>
-		<nav class='navbar navbar-inverse'>
-		<img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
-      <ul class='nav navbar-nav'>
-    <% if can? :manage, :all %>
-      <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
-    <%end%>
-    <% if cannot? :manage, :all %>
-      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
-      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
-      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
-    <%end%>
-  </ul>
-  <ul class= 'pull-right nav navbar-nav'>
-    <li><%=link_with_icon(:home, 'Home', root_path)%></li>
-    <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
-  </ul>
-</nav>
-			<div class='container'>
-			  <h1 ><strong>These are the available Articles</strong></h1>
-				<div align='center'>
-		      <%= paginate @articles %>
-		    </div>
-		    <style>
-			    table, th,td
-			    {border:1px solid black;padding:4px 4px 4px 4px;}
-			    table{width:800px;}
-		    </style>
-				<table class = 'table-hover' ">
-				  <th > Title</th>
-				  <th colspan =2 ><center>Actions</center></th>
-				  <% @articles.each do|article| %>
-					  <tr>
-					    <td ><strong><%= link_to article.title, article_path(article.id), method: :get %></strong></td>
-				  
-					    <td ><% if can? :update, article %>
-					      <%= link_with_icon(:pencil, '', edit_article_path(id: article.id), method: :get)%><%else%>N/A<%end%>
-					    </td>
-					    <td ><% if can? :destroy, article %>
-					    <%= link_with_icon(:trash, '', article_path(id: article.id), method: :delete, data: { confirm: 'Are you sure?'})%>
-					    <%else%>N/A
-					    <%end%>
-					    </td>
-				    </tr>
-				  <%end%>
-				</table>
-				<div align='center'>
-		      <%= paginate @articles %>
-		    </div>
-			</div>
+			<nav class='navbar navbar-inverse'>
+			<img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
+	      <ul class='nav navbar-nav'>
+	    <% if can? :manage, :all %>
+	      <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
+	    <%end%>
+	    <% if cannot? :manage, :all %>
+	      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
+	      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
+	      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+	    <%end%>
+	  </ul>
+	  <ul class= 'pull-right nav navbar-nav'>
+	    <li><%=link_with_icon(:home, 'Home', root_path)%></li>
+	    <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+	  </ul>
+	</nav>
+		<div class='container'>
+		  <h1 ><strong>Listing articles</strong></h1>
+			<div align='center'>
+	      <%= paginate @articles %>
+	    </div>
+			  <% @articles.each do|article| %>
+				  <div class='well'>
+				    <div class='row'>
+				      <div class='col-lg-4'>
+				        <div class='article_title'>
+				          <%= link_to article.title, article_path(article.id), method: :get %>
+				        </div>
+				      </div>
+				      <div class= 'col-lg-2 col-lg-offset-6'>
+					      <div class = 'article_actions'>
+						      <% if can? :update, article %>
+							      <%= link_with_icon(:pencil, '', edit_article_path(id: article.id), method: :get)%><%else%><%end%>
+							    <% if can? :destroy, article %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							    <%= link_with_icon(:trash, '', article_path(id: article.id), method: :delete, data: { confirm: 'Are you sure?'})%>
+							    <%else%>
+							    <%end%>
+						    </div>
+				      </div>
+				    </div>
+				  </div>
+			  <%end%>
+			<div align='center'>
+	      <%= paginate @articles %>
+	    </div>
+		</div>
 	</center>
 <%end%>

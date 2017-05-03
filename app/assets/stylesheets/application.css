@@ -30,24 +30,7 @@ z-index: 5 ;
 padding: 0 ;
 height: auto ;
 }
-.navbar-inverse
-{ margin: 0px 0px 0px 0px;
-}
-.navbar
-{
-  border-radius: 0px;
-}
 
-.nav
-{
-  border-radius: 0px;
-}
-
-
-.navbar-inverse
-{
-  border-radius: 0px;
-}
 .footer a {
 	padding: 5px 5px 5px 5px;
 	font-size: 14px;
@@ -60,17 +43,29 @@ height: auto ;
 	margin: 0px 0px 0px 0px;
  }
 
-.right{
-position: absolute;
-top: 0px;
-right: 0px;
-width: 100px;
+.navbar
+{
+  border-radius: 0px;
 }
 
-.nav li
+.nav
+{
+  border-radius: 0px;
+}
+ .nav li
 {
 text-decoration: none;
 font-size: 17px;
+}
+
+.navbar-inverse
+{position: relative;
+	top:0;
+	left:0;
+	width:100%;
+	z-index: 5;
+  border-radius: 0px;
+  margin: 0px 0px 0px 0px; 
 }
 
 .container table a{
@@ -84,3 +79,32 @@ font-size:15px;
 
   font-size:15px;
 }
+.container{
+ margin-top:10px
+
+}
+ .well
+ {text-align: left;
+background-color: #7b7b7b;
+ margin-bottom: 10px;
+ padding-top: 5px;
+ padding-bottom: 5px;
+}
+.well a
+{padding :10px 10px 10px 10px;
+
+	color: #212121;
+}
+.article_actions
+
+{ text-align:right;
+	font-size:20px;
+}
+ .article_title
+ {
+ 	 font-size:30px;
+ }
+ .row
+ {
+ 	margin:0px 0px 0px 0px;
+ }
