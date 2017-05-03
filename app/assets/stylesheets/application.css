@@ -28,12 +28,13 @@ left: 0px;
 margin: 0px 0px 0px 0px;
 z-index: 5 ;
 padding: 0 ;
-height: auto ;
+height: 30px ;
 }
 
 .footer a {
 	padding: 5px 5px 5px 5px;
 	font-size: 14px;
+
 }
  .footer h6{
 	float:right;

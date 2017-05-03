@@ -45,17 +45,17 @@
 					      <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
 					      <%= hidden_field :assign, :article_id, value: article.article_id %>
 					      <% if article.reviewer_status == 'accepted'%><div class='col-lg-2' style='padding:0px;'>
-					        Already Accepted</div>
+					        Accepted</div>
 					      <%elsif article.reviewer_status == 'rejected'%>
 					       
-					        <div class='col-lg-2' style='padding:0px;'>Already Rejected</div>
+					        <div class='col-lg-2' style='padding:0px;'>Rejected</div>
 					      <%else%>
 					        <div class='col-lg-2' style='padding:0px;'>
 					          <%= radio_button :assign, :reviewer_status, 'accepted'%>Accept</div> 
 					        <div class='col-lg-2' style='padding:0px;'>
 					          <%= radio_button :assign, :reviewer_status, 'rejected'%>Reject</div>
 					        <div class='col-lg-2' style='padding:0px;'>
-					          <input type='submit' value = 'Save Changes' class = 'btn btn-warning'></div>
+					          <input type='submit' value = 'Save Changes' class = 'btn btn-default'></div>
 					      <%end%>
 					    </form>
 						  <%end%>
