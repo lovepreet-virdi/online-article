@@ -99,9 +99,10 @@ background-color: #7b7b7b;
 
 { text-align:right;
 	font-size:20px;
+
 }
  .article_title
- {
+ {color: #212121;
  	 font-size:30px;
  }
  .row
