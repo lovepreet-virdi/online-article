@@ -39,12 +39,13 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     authorize! :update, @article
+
     if @article.update_attributes(update_params)
       flash[:success] = 'Article Updated Successfully'
       redirect_to articles_path
     else
       flash[:failure] = 'Article Updation Failed'
-      redirect_to edit_article_path(params[:id])
+      render 'edit'
     end
   end
   def publish
