@@ -22,9 +22,11 @@
     <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
   </ul>
 </nav>
-<div class= 'container'>
-  <center>
-    <h1><strong>Edit Profile</strong></h1>
+
+<div class= 'container-fluid' style="background-image:url(/bg3.jpg); " >
+
+  <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 5px 5px 6px navy; margin-top:2px;text-align:center; width:25%; height:auto;opacity: 0.8;">
+    <h1><strong><br>Edit Profile</strong></h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class='field'>
@@ -72,6 +74,6 @@
 
     <h3>Cancel my account</h3>
 
-    <p>Unhappy? <%= button_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete %></p>
-  </center>
-</div>
+    <p>Unhappy? <%= button_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, style:'margin-bottom:10px; margin-top:0px' %></p>
+  </div>
+</div>  
