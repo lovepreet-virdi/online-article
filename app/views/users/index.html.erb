@@ -2,7 +2,7 @@
   <nav class='navbar navbar-inverse' >
     <img class='navbar-brand img-circle' src = 'logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
     <h1 style="text-align:center;color:green;"> Welcome&nbsp;<strong> <%= current_user.name.titleize%></strong></h1>
-    <hr >
+    <hr style = "margin:0px 0px 0px 0px"  >
       <ul class='nav navbar-nav'>
         <% if can? :manage, :all %>
           <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
