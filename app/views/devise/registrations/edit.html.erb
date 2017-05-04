@@ -1,10 +1,3 @@
-<center><% if devise_error_messages!.present? %>
-  <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-  <%= devise_error_messages! %>
-  </div>
-<%end%>
-</center>
 <nav class='navbar navbar-inverse' style="margin-bottom:0px;">
 <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:50px;padding: 2px 2px 2px 2px;'>
   <ul class='nav navbar-nav'>
@@ -23,12 +16,19 @@
   </ul>
 </nav>
 
-<div class= 'container-fluid' style="background-image:url(/bg3.jpg); " >
+<div class= 'container-fluid' style="background-image:url(/bg3.jpg);" >
 
-  <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 5px 5px 6px navy; margin-top:2px;text-align:center; width:25%; height:auto;opacity: 0.8;">
-    <h1><strong><br>Edit Profile</strong></h1>
+  <div style="font-weight:90; background-color: white; margin:2px 0px 50px 35%;box-shadow: 5px 5px 6px navy; text-align:center; width:25%; height:auto;opacity: 0.8;">
+    <h2><strong><br>Edit Profile</strong></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <% if devise_error_messages!.present? %>
+  <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+      <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+  <%= devise_error_messages! %>
+  </div>
+<%end%>
+
       <div class='field'>
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true %>
@@ -64,8 +64,6 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: 'off' %>
       </div>
-
-     
 
       <div class='actions'>
         <%= f.submit 'Update' %>

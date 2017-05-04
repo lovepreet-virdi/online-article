@@ -19,6 +19,9 @@
  max-width:100%;
 }
 
+
+
+
 .footer {
 background-color: #222 ;
 width: 100% ;
@@ -90,9 +93,12 @@ background-color: #7b7b7b;
  margin-bottom: 10px;
  padding-top: 5px;
  padding-bottom: 5px;
+ border-radius: 10px;
 }
 .well a
 {padding :10px 10px 10px 10px;
+
+
 
 	color: #212121;
 }

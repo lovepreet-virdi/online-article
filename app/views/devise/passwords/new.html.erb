@@ -1,17 +1,19 @@
-<center>
-  <%if devise_error_messages!.present?%>
+<nav class='navbar navbar-inverse'>
+  <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
+  <h1 style='color:green; text-align:center;'>
+  <strong>Welcome To Online Peer System</strong></h1>
+</nav><div class= 'container-fluid' style="background-image:url(/bg3.jpg);height:658px; " >
+  <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 5px 5px 6px navy; margin-top:20px;text-align:center; width:25%; opacity: 0.8; height:auto;"><br>
+
+	<h2><strong>Forgot your password?</strong></h2>
+
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%if devise_error_messages!.present?%>
    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
         <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
 		    <%= devise_error_messages! %>
 		 </div>
   <%end%>
-</center>
-<div class = 'container'>
-<center>
-
-	<h2><strong>Forgot your password?</strong></h2>
-
-	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 	  <div class='field'>
 	    <%= f.label :email %><br />
 	    <%= f.email_field :email, autofocus: true %>
@@ -22,7 +24,7 @@
 	  </div>
 	<% end %>
 <div class ='link'>
-	<%= render 'devise/shared/links' %>
+	<%= render 'devise/shared/links' %><br>
 	</div>
-	</center>
+	</div>
 </div>
