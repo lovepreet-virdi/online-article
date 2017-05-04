@@ -24,7 +24,7 @@
 </nav>
 <div class= 'container'>
   <center>
-    <h2 ><strong>Edit Profile</strong></h2>
+    <h1><strong>Edit Profile</strong></h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class='field'>
@@ -49,7 +49,9 @@
 
       <div class='field'>
         <%= f.label 'New Password' %><br />
-        <%= f.password_field :password, autocomplete: 'off' %>
+        <%= f.password_field :password, autocomplete: 'off' %><br>
+        <i>
+        (if you want to change your password)</i>
         <% if @minimum_password_length %>
           <br />
           <em><%= @minimum_password_length %> characters minimum</em>

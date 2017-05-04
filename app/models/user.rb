@@ -5,8 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable
   validates :name, presence: true
-  validates :password, presence: true
-  validates :email, presence: true, uniqueness: true
   # has_many :articles, through: :assign
   has_many :assigns
   def self.from_omniauth(auth)
