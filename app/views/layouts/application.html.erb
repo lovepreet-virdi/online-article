@@ -18,11 +18,16 @@
       <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
 	    <%= msg %>
 		 </div>
-	<%else%>
+	<%elsif name=='failure'%>
     <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
     <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
 		  <%= msg %>
 		</div>
+    <%else%>
+    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+      <%= msg %>
+    </div>
   <%end %> 
 <%end%>
 </center>

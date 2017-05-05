@@ -1,0 +1,47 @@
+<center><% if devise_error_messages!.present?%>
+      <div class = 'alert alert-danger alert-dismissable' style= 'margin: 0px 0px 0px 0px' >
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+        <%= devise_error_messages! %>
+      </div>
+   <%end%>
+</center>
+<nav class='navbar navbar-inverse'>
+  <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
+  <h1 style='color:green; text-align:center;'>
+  <strong>Welcome To Online Peer System</strong></h1>
+</nav>
+<div class= 'container-fluid' style="background-image:url(/bg3.jpg);height:658px; " >
+ <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 5px 5px 6px navy; margin-top:20px;text-align:center; width:25%; opacity: 0.8; height:auto;"><br>
+    <h2><strong>Sign up</strong></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class='field'>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: 'off' %>
+      </div>
+
+      <div class='field'>
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: 'off' %>
+      </div>
+
+      <div class='actions'>
+        <%= f.submit 'Sign up' %>
+      </div>
+    <% end %>
+    <%= render 'devise/shared/links' %>
+    <br>
+  </div>
+</div>
