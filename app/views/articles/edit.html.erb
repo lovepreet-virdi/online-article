@@ -3,7 +3,6 @@
     <% if flash[:failure] %>
       <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
       <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-      <br>
       <% @article.errors.full_messages.each do |msg| %>
         <%= msg%>
         <br>
@@ -67,7 +66,7 @@
               <%= f.label 'Upload CoverPhoto:'%>
             </div>
             <div class='col-lg-2'>
-              <%= f.file_field :file%>
+              <%= f.file_field :file%><i>(only .jpg .jpeg .gif .png)</i>
             </div>
           </div>
         <div class='row'>

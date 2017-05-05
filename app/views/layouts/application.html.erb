@@ -14,16 +14,11 @@
   <center>
   <%- flash.each do |name, msg| -%>
   <%if name == 'notice' || name == 'success'%>
-     <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
+    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
       <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-	    <%= msg %>
-		 </div>
-	<%elsif name=='failure'%>
-    <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-    <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-		  <%= msg %>
+      <%= msg %>
 		</div>
-    <%else%>
+  <%else%>
     <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
     <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
       <%= msg %>

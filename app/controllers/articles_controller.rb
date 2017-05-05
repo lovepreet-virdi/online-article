@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     else
       flash[:failure] = 'Article Updation Failed'
-      render 'edit'
+      render action: 'articles#edit', template: 'articles/edit'
     end
   end
   def publish
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
       flash[:success] = 'Article Published Successfully'
       redirect_to articles_path
     else
-      flash[:failure] = 'Article Updation Failed'
+      flash[:failure] = 'Article Publishion Failed'
       redirect_to edit_article_path(params[:id])
     end
   end

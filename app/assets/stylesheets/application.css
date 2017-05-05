@@ -20,8 +20,6 @@
 }
 
 
-
-
 .footer {
 background-color: #222 ;
 width: 100% ;
@@ -72,17 +70,6 @@ font-size: 17px;
   margin: 0px 0px 0px 0px; 
 }
 
-.container table a{
-font-size:15px;
-}
-.container th{
-
-  font-size:25px;
-}
-.container td{
-
-  font-size:15px;
-}
 .container{
  margin-top:10px
 
@@ -94,6 +81,7 @@ background-color: #7b7b7b;
  padding-top: 5px;
  padding-bottom: 5px;
  border-radius: 10px;
+ word-wrap: break-word;
 }
 .well a
 {padding :10px 10px 10px 10px;

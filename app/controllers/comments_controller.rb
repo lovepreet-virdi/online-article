@@ -49,7 +49,6 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     respond_to do |format|
-      byebug
       authorize! :update, @comment
       if @comment.update(comment_params)
         format.html { redirect_to article_path(@comment.article_id), notice: 'Comment was successfully updated.' }
