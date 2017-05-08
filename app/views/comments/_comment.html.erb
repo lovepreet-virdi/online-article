@@ -6,7 +6,7 @@
 	  <div class='col-lg-2 col-lg-offset-4'>
 	    <div class = 'article_actions'>
 	      <% if can? :update, comment %>
-		      <i class="fa fa-pencil" ></i><%else%><%end%>
+		      <a href='<%= edit_comment_path(comment.id)%>' data-remote= "true"><i class="fa fa-pencil "></i></a><%else%><%end%>
 		    <% if can? :destroy, comment%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <%= link_with_icon(:trash, '', comment_path(id: comment.id), method: :delete, data: { confirm: 'Are you sure?'})%>
 		    <%else%>

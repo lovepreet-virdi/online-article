@@ -18,13 +18,3 @@
 //= require_tree .
 //= require tinymce
 
-$(document).ready(function(){
-
-    $('#a').on('click', function(){
-    	var orignal_comment = $('#comment').data('<%=comment_object.comment%>');
-    	alert(orignal_comment);
-    	var text = prompt("Edit Comment",orignal_comment);
-   
-       });
-
-});

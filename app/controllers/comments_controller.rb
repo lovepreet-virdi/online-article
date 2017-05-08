@@ -26,6 +26,9 @@ class CommentsController < ApplicationController
   def edit
     @comment =Comment.find(params[:id])
     authorize! :update, @comment
+    respond_to do |format|
+      format.js
+    end
   end
 
   # POST /comments

@@ -11,6 +11,10 @@
 	</ul>
 </nav>
 <div class='container'>
+<div id = "product-modal" class = "modal fade" style="color:black;">
+<h1></h1>
+</div>
+
 	<div class= 'row'>
 	  <div class= 'col-lg-12' >
 	  <%= image_tag @article.file.url if@article.file?%>
@@ -42,13 +46,17 @@
 			<div class ='well'>
 			  <div class ='col-lg-2'>
 			    <br><Strong>Add a Comment:&nbsp;&nbsp;</Strong>
-			  </div><br>
+			  </div>
+
+
+			  <br>
 	      <%=form_for @comment, remote: true do|f|%>
 	        <%=f.hidden_field :article_id, value: @article.id%>
 	        <%=f.hidden_field :user_id, value: current_user.id%>
 	        <%=f.text_area :comment, id: "comment_text_box"%>
 	        <%=f.submit "comment" %>
 	      <%end%>
+
 			</div>
 	  </div>
 	</div>
@@ -61,8 +69,12 @@
 	  <div class='well' id="comment_section" style="margin-bottom:40px">
 	  <m id="comments">
 	   <%=render @article_comments %>
-	   </m>
+	  </m>
+
 	  </div>
+	  adfadsf
   </div>
+
+
 </div>
 

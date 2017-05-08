@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'page:change', ->
-  $("#comment_section").fadeToggle();
-  $("#comment_comment").focus();
+  $("#comment_section").fadeToggle()
+  $("#comment_comment").focus()
