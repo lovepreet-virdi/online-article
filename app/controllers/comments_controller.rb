@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+
     authorize! :create, :comment
     @comment = Comment.new(comment_params)
 
@@ -38,6 +39,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to article_path(params[:comment][:article_id]), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

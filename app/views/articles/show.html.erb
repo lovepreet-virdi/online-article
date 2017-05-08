@@ -43,10 +43,10 @@
 			  <div class ='col-lg-2'>
 			    <br><Strong>Add a Comment:&nbsp;&nbsp;</Strong>
 			  </div><br>
-	      <%=form_for @comments  do|f|%>
+	      <%=form_for @comment, remote: true do|f|%>
 	        <%=f.hidden_field :article_id, value: @article.id%>
 	        <%=f.hidden_field :user_id, value: current_user.id%>
-	        <%=f.text_area :comment%>
+	        <%=f.text_area :comment, id: "comment_text_box"%>
 	        <%=f.submit "comment" %>
 	      <%end%>
 			</div>
@@ -57,25 +57,11 @@
 	    <h3 align='left'><strong>Comments</strong></h3>
 	  </div>
 	</div>
-	<div class='row'>
-	  <div class='well' style="margin-bottom:40px">
-	    <%@article_comments.each do |comment_object|%>
-				<div class = 'row'>
-				  <div class='col-lg-6 '>
-				   <h id='comment' ><%=comment_object.comment%></h>
-				  </div>
-				  <div class='col-lg-2 col-lg-offset-4'>
-				    <div class = 'article_actions'>
-				      <% if can? :update, comment_object %>
-					      <i class="fa fa-pencil" id ='a'></i><%else%><%end%>
-					    <% if can? :destroy, comment_object %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					    <%= link_with_icon(:trash, '', comment_path(id: comment_object.id), method: :delete, data: { confirm: 'Are you sure?'})%>
-					    <%else%>
-					    <%end%>
-			      </div>
-			    </div>
-				</div><hr> 
-	    <%end%>
+	<div class='row' >
+	  <div class='well' id="comment_section" style="margin-bottom:40px">
+	  <m id="comments">
+	   <%=render @article_comments %>
+	   </m>
 	  </div>
   </div>
 </div>
