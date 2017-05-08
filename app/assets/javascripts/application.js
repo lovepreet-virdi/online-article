@@ -20,14 +20,11 @@
 
 $(document).ready(function(){
 
-    $('#assign_article_id').on('change', function(){
-       alert(value);
-       var value = $('#assign_article_id option:selected').val();
-
-       $.ajax('updateusers/'+value,{
-          success: function(response){
-          }
+    $('#a').on('click', function(){
+    	var orignal_comment = $('#comment').data('<%=comment_object.comment%>');
+    	alert(orignal_comment);
+    	var text = prompt("Edit Comment",orignal_comment);
+   
        });
-    });
 
 });

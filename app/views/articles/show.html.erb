@@ -62,12 +62,12 @@
 	    <%@article_comments.each do |comment_object|%>
 				<div class = 'row'>
 				  <div class='col-lg-6 '>
-				    <%=comment_object.comment%>
+				   <h id='comment' ><%=comment_object.comment%></h>
 				  </div>
 				  <div class='col-lg-2 col-lg-offset-4'>
 				    <div class = 'article_actions'>
 				      <% if can? :update, comment_object %>
-					      <%= link_with_icon(:pencil, '', edit_comment_path(id: comment_object.id), method: :get)%><%else%><%end%>
+					      <i class="fa fa-pencil" id ='a'></i><%else%><%end%>
 					    <% if can? :destroy, comment_object %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					    <%= link_with_icon(:trash, '', comment_path(id: comment_object.id), method: :delete, data: { confirm: 'Are you sure?'})%>
 					    <%else%>

@@ -86,8 +86,9 @@ background-color: #7b7b7b;
 .well a
 {padding :10px 10px 10px 10px;
 
-
-
+	color: #212121;
+}
+.well i{
 	color: #212121;
 }
 .article_actions

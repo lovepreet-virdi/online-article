@@ -10,10 +10,16 @@ RailsAdmin.config do |config|
   config.excluded_models << 'User'
   config.model 'Article' do
     list do
-      field :id
-      field :user_id
+      field :id do 
+        label 'Article Id'
+      end
+      field :user_id do
+        label 'User Id'
+      end
       field :title
-      field :publish
+      field :publish do
+        label 'publised'
+      end
       field :description do
         formatted_value do # used in form views
           value.html_safe
@@ -27,10 +33,15 @@ RailsAdmin.config do |config|
       end
     end
     show do
-      field :id
-      field :user_id
+      field :id do 
+        label 'Article Id'
+      end
+      field :user_id do
+        label 'User Id'
+      end
       field :title
       field :publish do
+        label 'publised'
         partial 'publish'
       end
       field :description do
@@ -87,9 +98,11 @@ RailsAdmin.config do |config|
     list do
       include_all_fields
       field :user_id do
+        label 'User Id'
         visible true
       end
       field :article_id do
+        label 'Article Id'
         visible true
       end
     end
