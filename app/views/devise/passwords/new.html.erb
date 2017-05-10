@@ -1,8 +1,21 @@
 <nav class='navbar navbar-inverse'>
-  <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
-  <h1 style='color:green; text-align:center;'>
-  <strong>Welcome To Online Peer System</strong></h1>
-</nav><div class= 'container-fluid img-responsive' style="background-image:url(/bg3.jpg);height:658px;  background-size: cover;" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; height:60px;padding: 2px 2px 2px 2px;'>
+    </div>
+	  <div class="collapse navbar-collapse" id="myNavbar">
+		  <h1 style='color:green; text-align:center;'>
+		  <strong>Welcome To Online Peer System</strong></h1>
+	  </div>
+  </div>
+</nav>
+
+<div class= 'container-fluid img-responsive' style="background-image:url(/bg3.jpg);height:658px;  background-size: cover;" >
   <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 10px 10px 6px black; margin-top:20px;text-align:center; width:25%; opacity: 0.8; height:auto;"><br>
 
 	<h2><strong>Forgot your password?</strong></h2>
@@ -20,7 +33,7 @@
 	  </div>
 
 	  <div class='actions'>
-	    <%= f.submit 'Send me reset password instructions' %>
+	    <%= f.submit 'Send me reset password instructions', style: 'width:auto;margin-left:10px;margin-right:10px;' %>
 	  </div>
 	<% end %>
 <div class ='link'>
