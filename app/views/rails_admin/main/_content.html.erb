@@ -1,6 +1,0 @@
- <%= tinymce_assets %>
-<script type="text/javascript" src="/assets/tinymce.js">
- <%= tinymce %>
-
-<%article = Article.find(params[:id])%>
-  <%= text_field :article, :content,  :class => 'tinymce' %>

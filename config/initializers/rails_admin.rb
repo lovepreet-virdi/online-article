@@ -1,14 +1,8 @@
 RailsAdmin.config do |config|
-  config.model 'User' do
-    edit do
-      field :name
-      field :email
-      field :password
-      field :password_confirmation
-    end
-  end
   config.excluded_models << 'User'
+
   config.model 'Article' do
+    # list article section
     list do
       field :id do 
         label 'Article Id'
@@ -19,6 +13,7 @@ RailsAdmin.config do |config|
       field :title
       field :publish do
         label 'publised'
+        partial 'publish'        
       end
       field :description do
         formatted_value do # used in form views
@@ -32,6 +27,7 @@ RailsAdmin.config do |config|
         end
       end
     end
+    # show article section
     show do
       field :id do 
         label 'Article Id'
@@ -42,17 +38,10 @@ RailsAdmin.config do |config|
       field :title
       field :publish do
         label 'publised'
-        partial 'publish'
       end
       field :description do
-        formatted_value do # used in form views
-          value.html_safe
-        end
         pretty_value do # used in list view columns and show views
           value.html_safe
-        end
-        export_value do
-          value.html_safe # used in exports
         end
       end
       field :content do
@@ -67,22 +56,27 @@ RailsAdmin.config do |config|
         export_value do
           value.html_safe # used in exports, where no html/data is allowed
         end
-      end
-      
+      end  
     end
-
+    # edit article section
     edit do
       field :title
-      field :description do
+      field :description
+      field :category
+      field :content do
+        formatted_value do # used in form views
+          value.html_safe
+        end
+
         pretty_value do # used in list view columns and show views
           value.html_safe
         end
+
         export_value do
-          value.html_safe # used in exports,
+          value.html_safe # used in exports, where no html/data is allowed
         end
       end
-      field :category
-      field :content
+      field :publish
       field :user_id, :hidden do
         default_value do
           bindings[:view].current_user.id
@@ -90,6 +84,7 @@ RailsAdmin.config do |config|
       end
     end
   end
+
   config.model 'Assign' do
     edit do
       field :article
