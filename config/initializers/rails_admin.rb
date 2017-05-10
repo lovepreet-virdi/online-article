@@ -1,4 +1,5 @@
 # rubocop:disable BlockLength
+# rubocop:disable LineLength
 RailsAdmin.config do |config|
   config.excluded_models << 'User'
 
