@@ -1,8 +1,7 @@
 # gdfgd
 class UsersController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
   def index
-   
     # dfvfd
   end
 
@@ -30,6 +29,4 @@ before_action :authenticate_user!
   def destroy
     # fdsf
   end
-
- 
 end

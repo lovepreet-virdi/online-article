@@ -1,10 +1,11 @@
+# rubocop:disable BlockLength
 RailsAdmin.config do |config|
   config.excluded_models << 'User'
 
   config.model 'Article' do
     # list article section
     list do
-      field :id do 
+      field :id do
         label 'Article Id'
       end
       field :user_id do
@@ -13,7 +14,6 @@ RailsAdmin.config do |config|
       field :title
       field :publish do
         label 'publised'
-        partial 'publish'        
       end
       field :description do
         formatted_value do # used in form views
@@ -29,7 +29,7 @@ RailsAdmin.config do |config|
     end
     # show article section
     show do
-      field :id do 
+      field :id do
         label 'Article Id'
       end
       field :user_id do
@@ -56,7 +56,7 @@ RailsAdmin.config do |config|
         export_value do
           value.html_safe # used in exports, where no html/data is allowed
         end
-      end  
+      end
     end
     # edit article section
     edit do

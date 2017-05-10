@@ -1,10 +1,9 @@
+# rubocop:disable UselessAssignment
 source 'https://rubygems.org'
-
 git_source(:github) do |repo_name|
   repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
   'https://github.com/#{repo_name}.git'
 end
-gem 'pry'
 gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'carrierwave'
@@ -25,18 +24,18 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 
-
+gem 'pry'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
+gem 'rubocop'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-
 gem 'tinymce-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-gem 'twitter-bootstrap-rails' 
+gem 'twitter-bootstrap-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'wicked_pdf'
@@ -47,7 +46,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg' , '~> 0.20.0'
+  gem 'pg', '~> 0.20.0'
   gem 'rails_12factor'
 end
 

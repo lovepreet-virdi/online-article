@@ -1,3 +1,4 @@
+# rubocop:disable BlockLength
 Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -39,17 +40,17 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => "587",
-    :user_name => "sdeilovepreet@gmail.com",
-    :password => "sdei12345",
-    :authentication => "plain",
-    :enable_starttls_auto => true,
+    address: 'smtp.gmail.com',
+    port: '587',
+    user_name: 'sdeilovepreet@gmail.com',
+    password: 'sdei12345',
+    authentication: 'plain',
+    enable_starttls_auto: true,
     domain: 'gmail.com'
-  } 
-  config.action_mailer.default_url_options = { host: "https://online-peer-system.herokuapp.com" }
+  }
+  config.action_mailer.default_url_options = { host: 'https://online-peer-system.herokuapp.com' }
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   if ENV['RAILS_LOG_TO_STDOUT'].present?

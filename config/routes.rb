@@ -10,11 +10,10 @@ Rails.application.routes.draw do
   post 'assign_article1', to: 'articles#assign_article1', as: 'assign_article1'
   post 'articles/publish', to: 'articles#publish'
   resources :articles
-authenticated :user do
+  authenticated :user do
     root 'users#index', as: :authenticated_root
   end
   devise_scope :user do
     root to: 'devise/sessions#new'
   end
-
 end

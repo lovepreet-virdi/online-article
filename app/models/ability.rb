@@ -1,4 +1,6 @@
 # ffa
+# rubocop:disable MethodLength
+# rubocop:disable Metrics/AbcSize
 class Ability
   include CanCan::Ability
 
@@ -22,7 +24,7 @@ class Ability
       end
 
       # comment section
-        can :update, Comment do |comment|
+      can :update, Comment do |comment|
         comment.user_id == user.id
       end
       can :destroy, Comment do |comment|

@@ -1,5 +1,3 @@
 # gdfgd
 module ApplicationHelper
-
-   
 end

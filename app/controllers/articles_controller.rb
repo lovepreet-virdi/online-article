@@ -1,4 +1,6 @@
 # gdfgd
+# rubocop:disable LineLength
+# rubocop:disable Metrics/AbcSize
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -48,6 +50,7 @@ class ArticlesController < ApplicationController
       render action: 'articles#edit', template: 'articles/edit'
     end
   end
+
   def publish
     @article = Article.find(params[:id])
     authorize! :manage, :all
@@ -95,7 +98,6 @@ class ArticlesController < ApplicationController
 
   def updateusers
     @users = User.where.not('article_id = ? || role = ?', params[:id], true)
-    byebug
   end
 
   private
