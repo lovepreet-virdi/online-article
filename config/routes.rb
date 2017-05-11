@@ -1,5 +1,17 @@
 # rubocop:disable LineLength
 Rails.application.routes.draw do
+  get 'assign/index'
+
+  get 'assign/new'
+
+  get 'assign/create'
+
+  get 'assign/edit'
+
+  get 'assign/update'
+
+  get 'assign/destroy'
+
   resources :comments
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }

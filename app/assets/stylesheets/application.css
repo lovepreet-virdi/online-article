@@ -22,7 +22,11 @@ input
 {
 	width:auto;
 }
-
+.active
+{
+	padding-bottom:0px;
+	padding-left:10px;
+}
 .footer {
 background-color: #222 ;
 width: 100% ;
@@ -108,3 +112,15 @@ background-color: #7b7b7b;
  {
  	margin:0px 0px 0px 0px;
  }
+ .container-fluid
+ {
+ 	 padding:0;margin:0;
+ }
+div #myNavbar
+{
+	padding:0;margin:0;
+}
+.img-circle
+{
+	margin-left:5px !important;
+}

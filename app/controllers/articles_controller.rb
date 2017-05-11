@@ -71,7 +71,8 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     authorize! :destroy, @article
-    if @article.destroy
+    @assign_article = Assign.find_by_article_id(params[:id])
+    if @article.destroy && @assign_article.destroy
       flash[:success] = 'Article Destroyed Successfully'
     else
       flash[:failure] = 'Article Deletion Failed'
