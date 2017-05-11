@@ -22,11 +22,7 @@ input
 {
 	width:auto;
 }
-.active
-{
-	padding-bottom:0px;
-	padding-left:10px;
-}
+
 .footer {
 background-color: #222 ;
 width: 100% ;
@@ -74,7 +70,8 @@ font-size: 17px;
 	width:100%;
 	z-index: 5;
   border-radius: 0px;
-  margin: 0px 0px 0px 0px; 
+  margin: 0px 0px 0px 0px;
+  height:52px;
 }
 
 .container{
@@ -123,4 +120,8 @@ div #myNavbar
 .img-circle
 {
 	margin-left:5px !important;
+	height:52px !important;
+}
+.active a
+{
 }
