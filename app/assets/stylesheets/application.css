@@ -99,7 +99,7 @@ background-color: #7b7b7b;
 
 { text-align:right;
 	font-size:20px;
-	
+
 
 }
  .article_title
@@ -137,3 +137,5 @@ div #myNavbar
 {
   width: auto !important;
 }
+.navbar-header
+{margin:0;}
