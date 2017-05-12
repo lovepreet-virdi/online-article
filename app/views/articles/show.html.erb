@@ -39,13 +39,25 @@
 		  <div class='well' >
 	      <div class = 'article_title' >
 	        <div class='col-lg-12' style='padding-right:0px;text-align: center;padding-left:0px;'>
-				   <strong ><%= @article.title%></strong>&nbsp;&nbsp;&nbsp;<% if can? :update, @article %>
-							      <%= link_with_icon(:pencil, '', edit_article_path(id: @article.id), method: :get, style: "float:right")%><%else%><%end%>
-							    <% if can? :destroy, @article %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							    <%= link_with_icon(:trash, '', article_path(id: @article.id), method: :delete,style: "float:right", data: { confirm: 'Are you sure?'})%>
-							    <%else%>
-							    <%end%><hr>
-				  </div>
+					  <div class="row">
+	            <div class="col-lg-8">
+					      <strong ><%= @article.title%></strong>&nbsp;&nbsp;&nbsp;
+	            </div>
+
+	            <div class="col-lg-4">
+					      <div style='float:right'>
+					        <% if can? :update, @article %>					    
+										<%= link_with_icon(:pencil, '', edit_article_path(id: @article.id), method: :get)%>
+										<%else%>
+										<%end%>
+									<% if can? :destroy, @article %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<%= link_with_icon(:trash, '', article_path(id: @article.id), method: :delete, data: { confirm: 'Are you sure?'})%>
+									<%else%>
+									<%end%>
+							  </div>
+					    </div>
+					  </div><!--row end--> <hr>
+		      </div>
 			  </div>
 			  <div class ='col-lg-2'>
 			    <strong>Category:&nbsp;&nbsp;</strong>
@@ -62,6 +74,7 @@
 			  </div>
 			  <%=simple_format(@article.content)%>
 	    </div>
+	    
 			<div class ='well'>
 			  <div class ='col-lg-2'>
 			    <br><Strong>Post a Comment:&nbsp;&nbsp;</Strong>
