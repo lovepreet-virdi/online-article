@@ -138,4 +138,4 @@ div #myNavbar
   width: auto !important;
 }
 .navbar-header
-{margin:0;}
+{margin:0 !important;}
