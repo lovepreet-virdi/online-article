@@ -125,7 +125,11 @@ div #myNavbar
 .field input
 {
 	width:50% !important;
+}.field label
+{
+	text-align: center;
 }
+
 .actions input
 {
   width:auto !important;
