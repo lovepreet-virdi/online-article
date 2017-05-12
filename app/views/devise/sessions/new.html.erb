@@ -14,15 +14,15 @@
   </div> 
 </nav>
 <div class= 'container-fluid img-responsive' style="background-size:100% 100%;background-image:url(/bg3.jpg);height:658px; " >
-  <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 10px 10px 6px black; margin-top:20px;text-align:center; width:25%; opacity: 0.8; height:auto;"><br>
+  <div  align="center" style="font-weight:90; background-color: white; margin-left:34%;box-shadow: 10px 10px 6px black; margin-top:20px;text-align:center; width:33%; opacity: 0.8; height:auto;"><br>
     <h2 ><strong>Log in</strong></h2>
-
+  <div style="margin:15px;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class='field'>
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true%>
       </div>
-
+      
       <div class='field'>
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: 'off' %>
@@ -30,7 +30,7 @@
 
       <% if devise_mapping.rememberable? -%>
         <div class='field'>
-          <%= f.check_box :remember_me , style:'width:100%' %>
+          <%= f.check_box :remember_me, style:'width:auto !important'%>
           <%= f.label :remember_me %>
         </div>
       <% end -%>
@@ -39,7 +39,7 @@
         <%= f.submit 'Log in' %>
       </div>
     <% end %>
-
+  </div>
     <%= render 'devise/shared/links' %>  <br>
   </div>
 

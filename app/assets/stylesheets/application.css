@@ -119,9 +119,14 @@ div #myNavbar
 }
 .img-circle
 {
-	margin-left:5px !important;
+	margin:10px !important;
 	height:52px !important;
 }
-.active a
+.field input
 {
+	width:50% !important;
+}
+.actions input
+{
+  width:auto !important;
 }
