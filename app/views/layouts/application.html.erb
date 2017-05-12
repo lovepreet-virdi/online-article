@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="width:100%">
   <head>
     <title>OnlinePeerSystem</title>
     <%= csrf_meta_tags %>
@@ -10,8 +10,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="img-responsive" style=" background-image: url(/slide_1.jpg);background-size: cover; max-height:100%; font-family: 'Andika';" >
-  <center>
+  <body class="img-responsive" style=" background-image: url(/slide_1.jpg);background-size: cover; height:100%; font-family: 'Andika'; width:100%" >
+  <div align="center">
   <%- flash.each do |name, msg| -%>
   <%if name == 'notice' || name == 'success'%>
     <div style = "margin:0px 0px 0px 0px" class = 'alert alert-success alert-dismissable' >
@@ -25,7 +25,7 @@
     </div>
   <%end %> 
 <%end%>
-</center>
+</div>
 	  <%= yield %> 
 	  <div class = 'footer' >
 	    <a href='https://www.facebook.com/smartdata.enterprises.inc' target='_blank'>
