@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="img-responsive" style=" background-image: url(/slide_1.jpg);background-size: cover; height:100%; font-family: 'Andika'; width:100%" >
+  <body class="img-responsive" style=" background-image: url(/slide_1.jpg);background-size: 100% 100%; height:100%; font-family: 'Andika'; width:100%" >
   <div align="center">
   <%- flash.each do |name, msg| -%>
   <%if name == 'notice' || name == 'success'%>
