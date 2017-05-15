@@ -76,11 +76,14 @@ class ArticlesController < ApplicationController
   def review_article1
     @article = Assign.find_by('article_id = ? and user_id = ?', params[:assign][:article_id], current_user.id)
     authorize! :review_article1, @article
-
-    if @article.update_attributes(reviewer_status: params[:assign][:reviewer_status])
-      flash[:success] = 'Article Reviewed Successfully'
+    if params[:assign][:reviewer_status].present?
+      if @article.update_attributes(reviewer_status: params[:assign][:reviewer_status])
+        flash[:success] = 'Article Reviewed Successfully'
+      else
+        flash[:failure] = 'Article Review Failed'
+      end
     else
-      flash[:failure] = 'Review Failed'
+      flash[:failure] = 'choose any action First'
     end
     redirect_to review_article_path
   end
