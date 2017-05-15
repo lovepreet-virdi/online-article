@@ -14,30 +14,36 @@
   </div> 
 </nav>
 <div class= 'container-fluid img-responsive' style="background-size:100% 100%;background-image:url(/bg3.jpg);height:658px; " >
-  <div  align="center" style="font-weight:90; background-color: white; margin-left:34%;box-shadow: 10px 10px 6px black; margin-top:20px;text-align:center; width:33%; opacity: 0.8; height:auto;"><br>
+
+<div class='col-md-4 col-sm-4 col-xs-1'></div>
+
+<div class='col-md-4 col-sm-4 col-xs-10 text-center'>
+  <div  align="center" style="font-weight:90; background-color: white; box-shadow: 10px 10px 6px black; margin-top:20px;opacity: 0.8;padding:10px;"><br>
     <h2 ><strong>Log in</strong></h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class='field'>
+    <%= form_for(resource,class: 'form', as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class='form-group'>
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true%>
+        <%= f.email_field :email, autofocus: true,class: 'form-control'%>
       </div>
       
-      <div class='field'>
+      <div class='form-group'>
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: 'off' %>
+        <%= f.password_field :password, autocomplete: 'off',class: 'form-control' %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
-        <div class='field'>
+        <div class='checkbox'>
           <%= f.check_box :remember_me, style:'width:auto !important'%>
           <%= f.label :remember_me %>
         </div>
       <% end -%>
 
       <div class='actions'>
-        <%= f.submit 'Log in' %>
+        <%= f.submit 'Log in', class: 'btn btn-primary form-control' %>
       </div>
     <% end %>
     <%= render 'devise/shared/links' %>  <br>
+    </div>
   </div>
 </div>
+<div class='col-md-4 col-sm-4 col-xs-1'></div>

@@ -16,28 +16,31 @@
 </nav>
 
 <div class= 'container-fluid img-responsive' style="background-image:url(/bg3.jpg);height:658px;  background-size: cover;" >
-  <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 10px 10px 6px black; margin-top:20px;text-align:center; width:25%; opacity: 0.8; height:auto;"><br>
+<div class='col-md-4 col-sm-4 col-xs-1'></div>
+<div class='col-md-4 col-sm-4 col-xs-10 text-center'>
+  <div style="font-weight:90; background-color: white; box-shadow: 10px 10px 6px black; margin-top:20px; opacity: 0.8;;padding:10px;"><br>
 
-	<h2><strong>Forgot your password?</strong></h2>
+		<h2><strong>Forgot your password?</strong></h2>
 
-	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-	  <%if devise_error_messages!.present?%>
-   <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-		    <%= devise_error_messages! %>
-		 </div>
-  <%end%>
-	  <div class='field'>
-	    <%= f.label :email %><br />
-	    <%= f.email_field :email, autofocus: true %>
-	  </div>
+		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		  <%if devise_error_messages!.present?%>
+	   <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+	        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+			    <%= devise_error_messages! %>
+			 </div>
+	  <%end%>
+		  <div class='form-group'>
+		    <%= f.label :email %><br />
+		    <%= f.email_field :email, autofocus: true,class: 'form-control' %>
+		  </div>
 
-	  <div class='actions'>
-	    <%= f.submit 'Send me reset password instructions', style: 'width:auto;margin-left:10px;margin-right:10px;' %>
-	  </div>
-	<% end %>
-<div class ='link'>
-	<%= render 'devise/shared/links' %><br>
-	</div>
+		  <div class='actions'>
+		    <%= f.submit 'Send me reset password instructions',class: 'btn btn-primary form-control'%>
+		  </div>
+		<% end %>
+	  <div class ='link'>
+		  <%= render 'devise/shared/links' %><br>
+		</div>
 	</div>
 </div>
+<div class='col-md-4 col-sm-4 col-xs-1'></div>

@@ -15,38 +15,41 @@
   </div>
 </nav>
 <div class= 'container-fluid img-responsive' style="background-image:url(/bg3.jpg); background-size: cover;height:658px; " >
-  <div style="font-weight:90; background-color: white; margin-left:35%;box-shadow: 10px 10px 6px black; margin-top:20px;text-align:center; width:25%; opacity: 0.8; height:auto;"><br>
+  <div class='col-md-4 col-sm-4 col-xs-1'></div>
+  <div class='col-md-4 col-sm-4 col-xs-10 text-center'>
+    <div style="font-weight:90;padding:10px; background-color: white;box-shadow: 10px 10px 6px black; margin-top:20px;opacity: 0.8; "><br>
+      <h2>Change your password</h2>
 
-  <h2>Change your password</h2>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name),class: 'form', html: { method: :put }) do |f| %>
+        <%if devise_error_messages!.present?%>
+       <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+            <%= devise_error_messages! %>
+         </div>
+      <%end%>
+        <%= f.hidden_field :reset_password_token %>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%if devise_error_messages!.present?%>
-   <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-        <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-        <%= devise_error_messages! %>
-     </div>
-  <%end%>
-    <%= f.hidden_field :reset_password_token %>
+        <div class='form-group'>
+          <%= f.label :password, 'New password' %><br />
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: 'off',class: 'form-control' %>
+        </div>
 
-    <div class='field'>
-      <%= f.label :password, 'New password' %><br />
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <div class='form-group'>
+          <%= f.label :password_confirmation, 'Confirm new password' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: 'off',class: 'form-control' %>
+        </div>
+
+        <div class='actions'>
+          <%= f.submit 'Change my password', class: 'btn btn-primary form-control' %>
+        </div>
       <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: 'off' %>
+      <div class ='link'>
+        <%= render 'devise/shared/links' %>
+      </div><br>
     </div>
-
-    <div class='field'>
-      <%= f.label :password_confirmation, 'Confirm new password' %><br />
-      <%= f.password_field :password_confirmation, autocomplete: 'off' %>
-    </div>
-
-    <div class='actions'>
-      <%= f.submit 'Change my password', style: 'width: 100% ;' %>
-    </div>
-  <% end %>
-  <div class ='link'>
-    <%= render 'devise/shared/links' %>
-  </div><br>
   </div>
+  <div class='col-md-4 col-sm-4 col-xs-1'></div>
 </div>

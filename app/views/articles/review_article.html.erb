@@ -1,86 +1,84 @@
 <%if can? :review_article, :assign %>
-	<center>
-		<nav class='navbar navbar-inverse' >
-			<div class="container-fluid" >
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-          <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; padding:2px ;'>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar" >
-		      <ul class='nav navbar-nav'>
-				    <% if can? :manage, :all %>
-				      <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
-				    <%end%>
-				    <% if cannot? :manage, :all %>
-				      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
-				      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
-				      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
-				    <%end%>
-		      </ul>
-			    <ul class= 'pull-right nav navbar-nav'>
-			      <li><%=link_with_icon(:home, 'Home', root_path)%></li>
-			      <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
-			    </ul>
-			  </div>
+	<nav class='navbar navbar-inverse' >
+		<div class="container-fluid" >
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        <img class='navbar-brand img-circle' src = '/logo.jpeg' alt='logo' style='width:100px ; padding:2px ;'>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar" >
+	      <ul class='nav navbar-nav'>
+			    <% if can? :manage, :all %>
+			      <li ><%=link_to 'Dashboard', rails_admin_path, method: :get%></li>
+			    <%end%>
+			    <% if cannot? :manage, :all %>
+			      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
+			      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
+			      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+			    <%end%>
+	      </ul>
+		    <ul class= 'navbar-right nav navbar-nav'>
+		      <li><%=link_with_icon(:home, 'Home', root_path)%></li>
+		      <li class='active'><%=link_with_icon('sign-out', 'Logout', destroy_user_session_path, method: :delete)%></li>
+		    </ul>
+		  </div>
+		</div>
+  </nav>
+	<div class= 'container text-center' style="min-height: 600px;">
+		<%= tinymce %>
+		<h1><strong>Articles Assigned By Admin</strong></h1>
+		<%unless @articles.present? %>
+		  <p>No Article Assigned Currently</p>
+		<%else%>
+			<div align='center'>
+			  <%= paginate @articles %>
 			</div>
-    </nav>
-		<div class= 'container'>
-			<%= tinymce %>
-			<h1><strong>Articles Assigned By Admin</strong></h1>
-			<%unless @articles.present? %>
-			  <p>No Article Assigned Currently</p>
-			<%else%>
-				<div align='center'>
-				  <%= paginate @articles %>
-				</div>
-			  <% @articles.each do|article| %>
-					<div class='well '>
-						<div class='row'>
-							<div class='article_title'>
-							  <div class ='col-lg-12' style='padding:5px 0px 5px 0px;border-bottom: solid 1px white;'><strong><%= link_to review_articles(article.article_id).title, article_path(article.article_id) %></strong>
-							  </div>
-							</div>
-							<div class='col-lg-12' style='border-bottom: solid 1px white;padding:5px 0px 5px 0px;'>
-							  <div class = 'col-lg-2'><strong>Description:</strong></div>
-							  <div class ='col-lg-10'><%= simple_format(review_articles(article.article_id).description) %></div>
-							</div>
-				      
-				      <div class='col-lg-12' style='border-bottom: solid 1px white;padding:5px 0px 5px 0px;'>
-							  <div class = 'col-lg-2'><strong>Category:</strong></div>
-							  <div class='col-lg-10'><%= review_articles(article.article_id).category %></div>
-							</div>
-							<div class='col-lg-12'>
-							  <% if can? :review_article1, article %><strong><div class='col-lg-2' style='padding: 0px;'>Review Status:</strong></div>
-						    <form  method='post' action = '<%=review_article1_path%>' >
-						      <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
-						      <%= hidden_field :assign, :article_id, value: article.article_id %>
-						      <% if article.reviewer_status == 'accepted'%><div class='col-lg-2' style='padding:0px;'>
-						        Accepted</div>
-						      <%elsif article.reviewer_status == 'rejected'%>
-						       
-						        <div class='col-lg-2' style='padding:0px;'>Rejected</div>
-						      <%else%>
-						        <div class='col-lg-2' style='padding:0px;'>
-						          <%= radio_button :assign, :reviewer_status, 'accepted'%>Accept</div> 
-						        <div class='col-lg-2' style='padding:0px;'>
-						          <%= radio_button :assign, :reviewer_status, 'rejected'%>Reject</div>
-						        <div class='col-lg-2' style='padding:0px;'>
-						          <input type='submit' value = 'Save Changes' class = 'btn btn-default'></div>
-						      <%end%>
-						    </form>
-							  <%end%>
-					    </div>
-					  </div>
-					</div>
-				<%end%>
-			  <div align='center'>
-			    <%= paginate @articles %>
-			  </div>
+		  <% @articles.each do|article| %>
+				<div class='well '>
+					<div class='row'>
+						<div class='article_title'>
+						  <div class ='col-lg-12' style='padding:5px 0px 5px 0px;border-bottom: solid 1px white;'><strong><%= link_to review_articles(article.article_id).title, article_path(article.article_id) %></strong>
+						  </div>
+						</div>
+						<div class='col-lg-12' style='border-bottom: solid 1px white;padding:5px 0px 5px 0px;'>
+						  <div class = 'col-lg-2'><strong>Description:</strong></div>
+						  <div class ='col-lg-10'><%= simple_format(review_articles(article.article_id).description) %></div>
+						</div>
+			      
+			      <div class='col-lg-12' style='border-bottom: solid 1px white;padding:5px 0px 5px 0px;'>
+						  <div class = 'col-lg-2'><strong>Category:</strong></div>
+						  <div class='col-lg-10'><%= review_articles(article.article_id).category %></div>
+						</div>
+						<div class='col-lg-12'>
+						  <% if can? :review_article1, article %><strong><div class='col-lg-2' style='padding: 0px;'>Review Status:</strong></div>
+					    <form  method='post' action = '<%=review_article1_path%>' class = 'form' >
+					      <input name='authenticity_token' value='<%= form_authenticity_token %>' type='hidden'>
+					      <%= hidden_field :assign, :article_id, value: article.article_id %>
+					      <% if article.reviewer_status == 'accepted'%><div class='col-lg-2' style='padding:0px;'>
+					        Accepted</div>
+					      <%elsif article.reviewer_status == 'rejected'%>
+					       
+					        <div class='col-lg-2' style='padding:0px;'>Rejected</div>
+					      <%else%>
+					        <div class='col-lg-2' style='padding:0px;'>
+					          <%= radio_button :assign, :reviewer_status, 'accepted'%>Accept</div> 
+					        <div class='col-lg-2' style='padding:0px;'>
+					          <%= radio_button :assign, :reviewer_status, 'rejected'%>Reject</div><br>
+					        <div class='col-lg-2' style='padding:0px;'>
+					          <input type='submit' value = 'Save Changes' class = 'btn btn-primary form-control'></div>
+					      <%end%>
+					    </form>
+						  <%end%>
+				    </div>
+				  </div>
+				</div><br><br>
 			<%end%>
-	  </div>
-	</center>				
+		  <div align='center'>
+		    <%= paginate @articles %>
+		  </div>
+		<%end%>
+  </div>
 <%end%>
