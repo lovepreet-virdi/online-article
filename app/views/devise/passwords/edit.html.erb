@@ -1,3 +1,9 @@
+<%if devise_error_messages!.present?%>
+       <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable text-center' >
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
+            <%= devise_error_messages! %>
+         </div>
+<%end%>
 <nav class='navbar navbar-inverse'>
   <div class="container-fluid">
     <div class="navbar-header">
@@ -21,12 +27,7 @@
       <h2>Change your password</h2>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name),class: 'form', html: { method: :put }) do |f| %>
-        <%if devise_error_messages!.present?%>
-       <div style = "margin:0px 0px 0px 0px" class = 'alert alert-danger alert-dismissable' >
-            <a href='#' class='close' data-dismiss='alert' aria-label='close'>×</a>
-            <%= devise_error_messages! %>
-         </div>
-      <%end%>
+        
         <%= f.hidden_field :reset_password_token %>
 
         <div class='form-group'>
