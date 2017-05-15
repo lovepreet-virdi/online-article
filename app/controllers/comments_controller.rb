@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
   end
   
   def report_comment
-    byebug
+
     respond_to do |format|
       format.js
     end
