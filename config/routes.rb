@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   get 'assign/destroy'
 
-  get 'comments/:id/report_comment', to: 'comments#report_comment', as: 'report_comment'
-
   resources :comments
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }

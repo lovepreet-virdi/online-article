@@ -48,12 +48,7 @@ class CommentsController < ApplicationController
     end
   end
   
-  def report_comment
-
-    respond_to do |format|
-      format.js
-    end
-  end
+ 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update

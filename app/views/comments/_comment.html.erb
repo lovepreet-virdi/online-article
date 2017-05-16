@@ -9,9 +9,7 @@
 		      <a href='<%= edit_comment_path(comment.id)%>' data-remote = "true"><i class="fa fa-pencil "></i></a><%else%><%end%>
 		    <% if can? :destroy, comment%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <%= link_with_icon(:trash, '', comment_path(id: comment.id), method: :delete, data: { confirm: 'Are you sure?'})%>
-		    <%else%>
-		     <%= link_with_icon('exclamation-circle', '', report_comment_path(id: comment.id), {remote: true, id: 'report_comment'})%>
-		      <a href= '<%=report_comment_path(comment.id)%>' data-remote = "true"><i id ="report_comment" class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
+		  
 		    <%end%>
       </div>
     </div>
