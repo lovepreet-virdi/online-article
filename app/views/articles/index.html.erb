@@ -53,16 +53,16 @@
 		  <% @articles.each do|article| %>
 			  <div class='well'>
 			    <div class='row'>
-			    <div class='col-lg-4' style= 'height:100px;width:200px;overflow-y:hidden;'>
+			    <div class='col-lg-4 col-md-4 col-sm-4' style= 'height:100px;width:200px;overflow-y:hidden;overflow-x:hidden;'>
 			    <%= image_tag(article.file) %>
 			    </div>
-			      <div class='col-lg-4'>
+			      <div class='col-lg-4 col-md-4 col-sm-4'>
 			        <div class='article_title'>
 			          <%= link_to article.title, article_path(article.id), method: :get %>
 			        </div>
 			      </div>
 
-			      <div class= 'col-lg-2 col-lg-offset-2' style="float:right">
+			      <div class= 'col-lg-2 col-lg-offset-2  col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-4' style="float:right">
 				      <div class = 'article_actions'>
 					      <% if can? :update, article %>
 						      <%= link_with_icon(:pencil, '', edit_article_path(id: article.id), method: :get)%><%else%><%end%>

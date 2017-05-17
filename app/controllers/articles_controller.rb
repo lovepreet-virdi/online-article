@@ -8,9 +8,8 @@ class ArticlesController < ApplicationController
     authorize! :index, :article
     @q = User.ransack(params[:q])
     @user = @q.result(distinct: true)
-    # byebug
     if @user.count < User.all.count && @user.count != 0
-      @articles = Article.where("publish = ? AND user_id = ? ", true , @user.first.id).page(params[:page]).per(5)
+      @articles = (Article.where('user_id IN (?) and publish = ?', @user.ids, true)).page(params[:page]).per(5)
     else
       @articles =  Article.where("publish = ? OR user_id = ? ", true , current_user.id).page(params[:page]).per(5)
     end

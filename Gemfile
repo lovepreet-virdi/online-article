@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'devise-bootstrap-views'
+
 gem 'font-awesome-sass'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
