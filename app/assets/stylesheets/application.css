@@ -101,6 +101,7 @@ background-color: #7b7b7b;
 .article_actions
 
 { text-align:right;
+	float:right;
 	font-size:20px;
 
 

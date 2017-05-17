@@ -20,4 +20,7 @@ module ArticlesHelper
   def review_articles(article)
     Article.find(article)
   end
+  def article_owner(article)
+    User.find(article.user_id)
+  end
 end

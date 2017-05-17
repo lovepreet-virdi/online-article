@@ -29,6 +29,7 @@ gem 'pry'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
+gem 'ransack'
 gem 'rubocop'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

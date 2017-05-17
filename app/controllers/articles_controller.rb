@@ -4,8 +4,18 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
+    @user = nil
     authorize! :index, :article
-    @articles = Article.where('publish= ? or user_id = ?', true, current_user.id).page(params[:page]).per(5)
+    @q = User.ransack(params[:q])
+    @user = @q.result(distinct: true)
+    # byebug
+    if @user.count < User.all.count && @user.count != 0
+      @articles = Article.where("publish = ? AND user_id = ? ", true , @user.first.id).page(params[:page]).per(5)
+    else
+      @articles =  Article.where("publish = ? OR user_id = ? ", true , current_user.id).page(params[:page]).per(5)
+    end
+    # @articles = Article.where(user_id: @user.ids).page(params[:page]).per(5)
+    
   end
 
   def new

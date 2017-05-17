@@ -18,6 +18,14 @@
 		      <li><%=link_with_icon(:plus, 'Add Article', new_article_path, method: :get)%></li>
 		      <li><%=link_with_icon('list-alt', 'Articles', articles_path, method: :get)%></li>
 		      <li><%=link_with_icon('check-square', 'Review Article', review_article_path)%></li>
+		      <li>
+		        <%= search_form_for @q ,  url: {controller: 'articles', action: 'index'} do |f| %>
+						  <%= f.search_field :name_cont , placeholder: "search by writer", style: "margin:6px 6px 6px 17px"%>
+						  <button type="submit"  style = "margin:6px">
+                <i class="fa fa-search"></i>
+              </button>
+						<% end %>
+					</li>
 		    <%end%>
 	    </ul>
 		  <ul class= 'navbar-right nav navbar-nav'>
@@ -30,18 +38,31 @@
 </nav>
 	<div class='container' style="min-height: 560px;">
 	  <h1 style="text-align:center;" ><strong>Listing articles</strong></h1>
+	  <%if @user.count == 0%>
+	    <div class= 'text-center'>
+        <h2>No writer Available with this name</h2>
+	    </div>
+	  <%elsif @articles.count == 0 && @user.count != 0%>
+	    <div class= 'text-center'>
+        <h2>No Article Available of this writer</h2>
+	    </div>
+	  <%else%>
 		<div align='center'>
       <%= paginate @articles %>
     </div>
 		  <% @articles.each do|article| %>
 			  <div class='well'>
 			    <div class='row'>
+			    <div class='col-lg-4' style= 'height:100px;width:200px;overflow-y:hidden;'>
+			    <%= image_tag(article.file) %>
+			    </div>
 			      <div class='col-lg-4'>
 			        <div class='article_title'>
 			          <%= link_to article.title, article_path(article.id), method: :get %>
 			        </div>
 			      </div>
-			      <div class= 'col-lg-2 col-lg-offset-6'>
+
+			      <div class= 'col-lg-2 col-lg-offset-2' style="float:right">
 				      <div class = 'article_actions'>
 					      <% if can? :update, article %>
 						      <%= link_with_icon(:pencil, '', edit_article_path(id: article.id), method: :get)%><%else%><%end%>
@@ -52,11 +73,19 @@
 					    </div>
 			      </div>
 			    </div>
+			    <div class='row'>
+            <div class= 'col-lg-8 ' >
+              created by: <%=article_owner(article).name%>;
+              <%=time_ago_in_words(article.created_at) %>&nbsp;ago;
+              Last updated at: <%= time_ago_in_words(article.updated_at)%>&nbsp;ago
+            </div>
+			    </div>
 			  </div>
 		  <%end%>
 		<div align='center'>
       <%= paginate @articles %>
     </div>
     <br><br>
+  <%end%>
 	</div>
 <%end%>
