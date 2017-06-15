@@ -1,7 +1,6 @@
 # rubocop:disable BlockLength
 # rubocop:disable LineLength
 RailsAdmin.config do |config|
-  config.excluded_models << 'User'
 
   config.model 'Article' do
     # list article section
